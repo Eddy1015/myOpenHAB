@@ -1,0 +1,85 @@
+
+
+rule "SetDay"
+    when
+      System started or
+      Time is midnight
+    then
+      Today.postUpdate(new DateTimeType())
+end
+
+
+rule "Alle Lichter Switch"
+    when
+        Item all_lights received command
+    then
+        if( all_lights.state == "OFF" ) {
+            publish("broker", "cmnd/sonoff_1/POWER", "OFF")
+            Thread::sleep(1000)
+            publish("broker", "cmnd/sonoff_2/POWER", "OFF")
+            Thread::sleep(1000)
+            publish("broker", "cmnd/sonoff_3/POWER", "OFF")
+            Thread::sleep(1000)
+            publish("broker", "cmnd/sonoff_4/POWER", "OFF")
+            //sendCommand(innogy_licht_1, OFF)
+        } else if ( all_lights.state == "ON" ) {
+            publish("broker", "cmnd/sonoff_1/POWER", "ON")
+            Thread::sleep(1000)
+            publish("broker", "cmnd/sonoff_2/POWER", "ON")
+            Thread::sleep(1000)
+            publish("broker", "cmnd/sonoff_3/POWER", "ON")
+            Thread::sleep(1000)
+            publish("broker", "cmnd/sonoff_4/POWER", "ON")
+            //sendCommand(innogy_licht_1, ON)
+        }
+        sendTelegram("bot1", "Switch - ALL to %s", all_lights.state)
+end
+
+
+rule "Alle Licher Check"
+    when
+        Item Sonoff_Licht_1 changed or
+        Item Sonoff_Licht_2 changed or
+        Item Sonoff_Licht_3 changed or
+        Item Sonoff_Licht_4 changed /*or
+        Item innogy_licht_1 changed*/
+    then
+        if (all_lights_checking == 1) {
+            sendTelegram("bot1", "checking")
+            sendCommand(all_lights_checking, 1)
+            Thread::sleep(3000)
+            sendCommand(all_lights_checking, 0)
+        } else if (
+            Sonoff_Licht_1.state == ON ||
+            Sonoff_Licht_2.state == ON ||
+            Sonoff_Licht_3.state == ON ||
+            Sonoff_Licht_4.state == ON /*||
+            innogy_licht_1.state == ON*/ ) {
+                sendCommand(all_lights, "SOME")
+        } else if (
+            Sonoff_Licht_1.state == OFF &&
+            Sonoff_Licht_2.state == OFF &&
+            Sonoff_Licht_3.state == OFF &&
+            Sonoff_Licht_4.state == OFF /*&&
+            innogy_licht_1.state == OFF*/ ) {
+                sendCommand(all_lights, "OFF")
+        } else if (
+            Sonoff_Licht_1.state == ON &&
+            Sonoff_Licht_2.state == ON &&
+            Sonoff_Licht_3.state == ON &&
+            Sonoff_Licht_4.state == ON /*&&
+            innogy_licht_1.state == ON*/ ) {
+                sendCommand(all_lights, "ON")
+        }
+end
+
+
+rule "Telegram Button"
+    when
+        Item telegram_msg changed
+    then
+        sendTelegram("bot0", "Huhu %s", telegram_msg.state)
+        sendTelegram("bot1", "Huhu %s", telegram_msg.state)
+        sendTelegram("bot2", "Huhu %s", telegram_msg.state)
+        sendTelegram("bot3", "Huhu %s", telegram_msg.state)
+end

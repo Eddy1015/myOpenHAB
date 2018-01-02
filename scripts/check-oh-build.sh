@@ -1,0 +1,1 @@
+sed -n 's/build-no\s*: //p' /var/lib/openhab2/etc/version.properties | cut -d '#' -f 2

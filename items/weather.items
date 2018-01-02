@@ -1,0 +1,8 @@
+
+Number  Temperature_chart   "Temperature_chart"
+Number  Humidity_chart      "Humidity_chart"
+Number  Pressure_chart      "Pressure_chart"
+
+Number  Temperature         "Temperatur: Speyer [%.1f °C]"  <temperature>   (gWEATHER)  { channel="yahooweather:weather:speyer:temperature" }
+Number  Humidity            "Luftfeuchtigkeit: Speyer"      <humidity>      (gWEATHER)  { channel="yahooweather:weather:speyer:humidity" }
+Number  Pressure            "Luftdruck: Speyer"             <pressure>      (gWEATHER)  { channel="yahooweather:weather:speyer:pressure" }

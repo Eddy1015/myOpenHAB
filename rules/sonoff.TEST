@@ -1,0 +1,51 @@
+// Work with a list of selected Sonoff modules
+val sonoff_device_ids = newArrayList(
+    "sonoff_1",
+    "sonoff_2",
+    "sonoff_3",
+    "sonoff_4",
+    //... add all your modules here!
+)
+// OR
+// Work with the grouptopic, addressing ALL modules at once
+//val sonoff_device_ids = newArrayList("sonoffs")
+
+rule "Sonoff Maintenance"
+when
+    Item Sonoff_Action received command
+then 
+    logInfo("sonoff.rules", "Sonoff Maintenance on all devices: " + receivedCommand)
+    for (String device_id : sonoff_device_ids) {
+        switch (receivedCommand) {
+            case "restart" :
+                publish("broker", "cmnd/" + device_id + "/restart", "1") 
+            case "queryFW" :
+                publish("broker", "cmnd/" + device_id + "/status", "2")
+            case "upgrade" : {
+                publish("broker", "cmnd/" + device_id + "/otaurl", "http://sonoff.maddox.co.uk/tasmota/sonoff.ino.bin")
+                publish("broker", "cmnd/" + device_id + "/upgrade", "1")
+            }
+        }
+    }
+    Sonoff_Action.postUpdate(NULL)
+end
+
+
+import org.joda.time.*
+import org.openhab.core.persistence.*
+
+rule "Switch off Lights after 30 Minutes"
+when
+    Time cron "0 * * * * ?" // Jede Minute
+then
+    var lightsOn = gLightsTimer?.members.filter(s | s.state != OFF) // Für alle Switch-Items, die den entsprechenden Status haben können
+    if(!(lightsOn.isEmpty)) {       // Gibt es überhaupt eingeschaltete Lampen?
+        lightsOn.forEach[lamp |     // Für jede eingeschaltete Lampe...
+            if(!(lamp.changedSince(now.minusMinutes(20), "rrd4j"))) {
+                logInfo("RULE", "--> Lights Timer " + lamp.label)
+                sendCommand(lamp, OFF)
+                sendBroadcastNotification(lamp.label + " war über 30 Min an und wurde ausgeschaltet")
+            }
+        ]
+    }
+end

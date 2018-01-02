@@ -1,0 +1,38 @@
+Strategies {
+    everyMinute : "0 * * * * ?"
+    everyHalf : "0 30 * * * ?"
+    everyHour : "0 0 * * * ?"
+    everyDay : "0 0 0 * * ?"
+    default = everyUpdate, restoreOnStartup
+}
+Items {
+    Sonoff_Licht_1_RSSI : strategy = everyChange, everyMinute, restoreOnStartup
+    Sonoff_Licht_2_RSSI : strategy = everyChange, everyMinute, restoreOnStartup
+    Sonoff_Licht_3_RSSI : strategy = everyChange, everyMinute, restoreOnStartup
+    Sonoff_Licht_4_RSSI : strategy = everyChange, everyMinute, restoreOnStartup
+
+    INNOGY_Temp : strategy = everyChange, everyMinute, restoreOnStartup
+    INNOGY_Humi : strategy = everyChange, everyMinute, restoreOnStartup
+
+    innogy_thermostat_wz1_ist_temp : strategy = everyChange, everyMinute, restoreOnStartup
+    innogy_thermostat_wz1_ist_humi : strategy = everyChange, everyMinute, restoreOnStartup
+    
+    innogy_thermostat_wz2_ist_temp : strategy = everyChange, everyMinute, restoreOnStartup
+    innogy_thermostat_wz2_ist_humi : strategy = everyChange, everyMinute, restoreOnStartup
+    
+    innogy_thermostat_az_ist_temp : strategy = everyChange, everyMinute, restoreOnStartup
+    innogy_thermostat_az_ist_humi : strategy = everyChange, everyMinute, restoreOnStartup
+
+    innogy_thermostat_bz_ist_temp : strategy = everyChange, everyMinute, restoreOnStartup
+    innogy_thermostat_bz_ist_humi : strategy = everyChange, everyMinute, restoreOnStartup
+
+    Temperature : strategy = everyChange, everyMinute, restoreOnStartup
+    Humidity : strategy = everyChange, everyMinute, restoreOnStartup
+    Pressure : strategy = everyChange, everyMinute, restoreOnStartup
+    gWAETHER : strategy = everyChange, everyMinute, restoreOnStartup
+    gRSSI : strategy = everyChange, everyMinute, restoreOnStartup
+    gPresence : strategy = everyChange, everyMinute, restoreOnStartup
+    location_1 : strategy = everyChange, everyMinute, restoreOnStartup
+    location_2 : strategy = everyChange, everyMinute, restoreOnStartup
+    * : strategy = everyChange, restoreOnStartup
+}

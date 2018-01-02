@@ -1,0 +1,36 @@
+sitemap debug label="Debug"
+{
+    Frame label="Anwesenheit" {
+        Switch  item=location_1     label="Eddy zu Hause"  icon="man_1"    mappings=[OFF="weg", ON="daheim"]
+        Switch  item=location_2     label="Cath zu Hause"  icon="woman_1"  mappings=[OFF="weg", ON="daheim"]
+
+    }
+    Frame label="Experimente" {
+        Switch  item=all_lights         label="Alle Lichter"                    icon="energy"   mappings=["ON"="An", "OFF"="Aus", "SOME"="Einige"]
+        Switch  item=telegram_msg       label="Telegram Nachricht senden an:"   icon="garden"   mappings=["Eddy"="Eddy", "Cath"="Cath"]
+        Switch  item=Timer_1
+        Setpoint item=Timer_1_h         label="T1 Stunde [%d Uhr]"        minValue=0          maxValue=23 step=1
+    }
+    Frame label="Innogy Temperatur" {
+        Text    item=innogy_thermostat_az_ist_temp  icon="temperature"  valuecolor=[>23="red",>18="green",<=18="blue"]
+        Text    item=innogy_thermostat_az_ist_humi  icon="temperature"  valuecolor=[>90="red",>75="orange",>60="gray",<=60="black"]
+        Text    item=innogy_thermostat_wz1_ist_temp icon="temperature"  valuecolor=[>23="red",>18="green",<=18="blue"]
+        Text    item=innogy_thermostat_wz1_ist_humi icon="temperature"  valuecolor=[>90="red",>75="orange",>60="gray",<=60="black"]
+        Text    item=innogy_thermostat_wz2_ist_temp icon="temperature"  valuecolor=[>23="red",>18="green",<=18="blue"]
+        Text    item=innogy_thermostat_wz2_ist_humi icon="temperature"  valuecolor=[>90="red",>75="orange",>60="gray",<=60="black"]
+        Text    item=innogy_thermostat_bz_ist_temp  icon="temperature"  valuecolor=[>23="red",>18="green",<=18="blue"]
+        Text    item=innogy_thermostat_bz_ist_humi  icon="temperature"  valuecolor=[>90="red",>75="orange",>60="gray",<=60="black"]
+    }
+    Frame label="Erreichbarkeit" {
+        Text    item=Sonoff_Licht_1_RSSI    label="Sonoff_1 WIFI Küche" icon="network"  valuecolor=[>=90="#000000",>=80="#990000",>75="#cc0000",>60="#e50000",<=60="#ff0000"]
+        Text    item=Sonoff_Licht_2_RSSI    label="Sonoff_2 WIFI Flur"  icon="network"  valuecolor=[>=90="#000000",>=80="#990000",>75="#cc0000",>60="#e50000",<=60="#ff0000"]
+        Text    item=Sonoff_Licht_3_RSSI    label="Sonoff_3 WIFI WZ1 L" icon="network"  valuecolor=[>=90="#000000",>=80="#990000",>75="#cc0000",>60="#e50000",<=60="#ff0000"]
+        Text    item=Sonoff_Licht_4_RSSI    label="Sonoff_4 WIFI WZ2 R" icon="network"  valuecolor=[>=90="#000000",>=80="#990000",>75="#cc0000",>60="#e50000",<=60="#ff0000"]
+
+        // Sonoff_RSSI_chart
+        Switch  item=Sonoff_RSSI_chart label="Sonoff_GROUP" icon="line" mappings=[0="Hide", 1="Hour", 2="Day", 3="Week"]
+            Chart   item=gRSSI   service="rrd4j"    period=h refresh=500    visibility=[Sonoff_RSSI_chart==1]
+            Chart   item=gRSSI   service="rrd4j"    period=D refresh=30000  visibility=[Sonoff_RSSI_chart==2]
+            Chart   item=gRSSI   service="rrd4j"    period=W refresh=30000  visibility=[Sonoff_RSSI_chart==3]
+    }
+}

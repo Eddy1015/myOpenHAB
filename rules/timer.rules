@@ -1,0 +1,73 @@
+
+
+var Timer timer1 = null    
+
+rule "Timer 1 Switch"
+    when
+        Item Timer_1 received command ON
+    then
+
+        logDebug("RULE", "--> " + Timer_1.label)
+        sendCommand(Test_item, ON)
+        if(timer1 == null) {
+            timer1 = createTimer(now.plusSeconds(5), [|
+                sendCommand(Test_item, OFF)
+                timer1 = null
+            ])
+        }
+        else {
+            timer1.reschedule(now.plusSeconds(5))
+        }
+end
+
+rule "Täglich um 1800"
+    when
+        Time cron " 0 0 18 1/1 * ? *"
+    then
+        if (Timer_1.state == ON) {
+            sendTelegram("bot1", "Weihnachtsbaum AN")
+            sendCommand(Sonoff_Licht_3, ON)
+        }
+end
+rule "Unter der Woche um 2130"
+    when
+        Time cron "0 30 21 ? * MON-THU *"
+    then
+        if (Timer_1.state == ON) {
+            sendTelegram("bot1", "Weihnachtsbaum GEDIMMT")
+            sendCommand(Sonoff_Licht_3, OFF)
+            Thread::sleep(1000)
+            sendCommand(Sonoff_Licht_3, ON)
+        }
+end
+rule "Unter der Woche um 2230"
+    when
+        Time cron "0 30 22 ? * MON-THU *"
+    then
+        if (Timer_1.state == ON) {
+            sendTelegram("bot1", "Weihnachtsbaum AUS")
+            sendCommand(Sonoff_Licht_3, OFF)
+        }
+end
+rule "Wochenende um 2330"
+    when
+        Time cron " 0 30 23 ? * FRI,SAT,SUN *"
+    then
+        if (Timer_1.state == ON) {
+            sendTelegram("bot1", "Weihnachtsbaum GEDIMMT")
+            sendCommand(Sonoff_Licht_3, OFF)
+            Thread::sleep(1000)
+            sendCommand(Sonoff_Licht_3, ON)
+        }
+end
+
+rule "JEDE STUNDE"
+    when
+        Time cron "0 0 0/1 1/1 * ? *"
+    then
+        if (Timer_1.state == ON) {
+            
+            sendTelegram("bot1", "Timer AN")
+            
+        }
+end

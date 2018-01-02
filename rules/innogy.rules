@@ -1,0 +1,30 @@
+
+
+rule "Innogy SOLL"
+    when
+        Item innogy_thermostat_az_soll_temp changed
+    then
+        sendTelegram("bot1", "Innogy AZ\nSOLL -> %s °C", innogy_thermostat_az_soll_temp.state)
+end
+
+rule "Innogy SOLL"
+    when
+        Item innogy_thermostat_bz_soll_temp changed
+    then
+        sendTelegram("bot1", "Innogy BZ\nSOLL -> %s °C", innogy_thermostat_bz_soll_temp.state)
+end
+
+rule "Innogy SOLL"
+    when
+        Item innogy_thermostat_wz1_soll_temp changed
+    then
+        sendTelegram("bot1", "Innogy WZ1\nSOLL -> %s °C", innogy_thermostat_wz1_soll_temp.state)
+end
+
+rule "Innogy SOLL"
+    when
+        Item innogy_thermostat_wz2_soll_temp changed
+    then
+        sendTelegram("bot1", "Innogy WZ2\nSOLL -> %s °C", innogy_thermostat_wz2_soll_temp.state)
+end
+
