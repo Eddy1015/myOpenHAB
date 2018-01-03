@@ -9,7 +9,6 @@ sitemap debug label="Debug"
         Switch  item=all_lights         label="Alle Lichter"                    icon="energy"   mappings=["ON"="An", "OFF"="Aus", "SOME"="Einige"]
         Switch  item=telegram_msg       label="Telegram Nachricht senden an:"   icon="garden"   mappings=["Eddy"="Eddy", "Cath"="Cath"]
         Switch  item=Timer_1
-        Setpoint item=Timer_1_h         label="T1 Stunde [%d Uhr]"        minValue=0          maxValue=23 step=1
     }
     Frame label="Innogy Temperatur" {
         Text    item=innogy_thermostat_az_ist_temp  icon="temperature"  valuecolor=[>23="red",>18="green",<=18="blue"]

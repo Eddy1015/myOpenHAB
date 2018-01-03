@@ -50,8 +50,9 @@ rule "Alle Licher Check"
             Sonoff_Licht_3.state == ON ||
             Sonoff_Licht_4.state == ON /*||
             innogy_licht_1.state == ON*/ ) {
-                //sendCommand(all_lights, "SOME")
-                all_lights.sendCommand("SOME")
+                sendCommand(all_lights, "SOME")
+                //all_lights.sendCommand("SOME")
+                logError("XXX", "SOME")
         } else if (
             Sonoff_Licht_1.state == OFF &&
             Sonoff_Licht_2.state == OFF &&
