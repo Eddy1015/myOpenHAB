@@ -58,7 +58,7 @@ end
 
 rule "All Lights Toggle" // 5 - Maya Mate
     when
-        Channel "amazondashbutton:dashbutton:a88e4416:press" triggered
+        Channel "amazondashbutton:dashbutton:ca615f26:press" triggered
     then
         if(
             Sonoff_Licht_1.state == ON ||
