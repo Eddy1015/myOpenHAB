@@ -4,106 +4,92 @@ rule "Livingroom Window Lights" // 1 - Nivea Men
     when
         Channel "amazondashbutton:dashbutton:85d7b6e0:press" triggered
     then
-        //publish("broker", "cmnd/sonoff_1/POWER", "TOGGLE")
         publish("broker", "cmnd/sonoff_3/POWER", "TOGGLE")
         publish("broker", "cmnd/sonoff_4/POWER", "TOGGLE")
-        sendTelegram("bot3", "DashButton 1 - Nivea Men")
 end
 
-
-rule "Corridor Lights" // 2 - Ariel
+rule "Corridor Lights"          // 2 - Ariel
     when
         Channel "amazondashbutton:dashbutton:4924ae04:press" triggered
     then
         publish("broker", "cmnd/sonoff_2/POWER", "TOGGLE")
-        sendTelegram("bot3", "DashButton 2 - Ariel")
 end
 
-
-rule "ALL Lights OFF" // 3 - brabantia
-    when
-        Channel "amazondashbutton:dashbutton:5dc017ff:press" triggered
-    then
-        if(
-            Sonoff_Licht_1.state == ON ||
-            Sonoff_Licht_2.state == ON ||
-            Sonoff_Licht_3.state == ON ||
-            Sonoff_Licht_4.state == ON ||
-            innogy_licht_1.state == ON ) {
-            publish("broker", "cmnd/sonoff_1/POWER", "OFF")
-            publish("broker", "cmnd/sonoff_2/POWER", "OFF")
-            publish("broker", "cmnd/sonoff_3/POWER", "OFF")
-            publish("broker", "cmnd/sonoff_4/POWER", "OFF")
-            sendCommand(innogy_licht_1, OFF)
-            sendTelegram("bot3", "DashButton 3 - brabantia - all OFF")
-        } else {
-            publish("broker", "cmnd/sonoff_1/POWER", "ON")
-            publish("broker", "cmnd/sonoff_2/POWER", "ON")
-            publish("broker", "cmnd/sonoff_3/POWER", "ON")
-            publish("broker", "cmnd/sonoff_4/POWER", "ON")
-            sendCommand(innogy_licht_1, ON)
-            sendTelegram("bot3", "DashButton 3 - brabantia - all ON")
-        }
-end
-
-
-rule "Kitchen Lights" // 4 - Kleenex
+rule "Kitchen Lights"           // 4 - Kleenex
     when
         Channel "amazondashbutton:dashbutton:01e5c1b7:press" triggered
     then
         publish("broker", "cmnd/sonoff_1/POWER", "TOGGLE")
+end
+
+rule "ALL Lights OFF"           // brabantia, Maya Mate, Jacobs
+    when
+        Channel "amazondashbutton:dashbutton:5dc017ff:press" triggered or       // 3 - brabantia
+        Channel "amazondashbutton:dashbutton:ca615f26:press" triggered or       // 5 - Maya Mate
+        Channel "amazondashbutton:dashbutton:2ec3b231:press" triggered          // 6 - Jacobs
+    then
+        if(
+            Sonoff_Licht_1.state == ON ||
+            Sonoff_Licht_2.state == ON ||
+            Sonoff_Licht_3.state == ON ||
+            Sonoff_Licht_4.state == ON ||
+            innogy_licht_1.state == ON ) {
+            publish("broker", "cmnd/sonoff_1/POWER", "OFF")
+            publish("broker", "cmnd/sonoff_2/POWER", "OFF")
+            publish("broker", "cmnd/sonoff_3/POWER", "OFF")
+            publish("broker", "cmnd/sonoff_4/POWER", "OFF")
+            sendCommand(innogy_licht_1, OFF)
+        } else {
+            publish("broker", "cmnd/sonoff_1/POWER", "ON")
+            publish("broker", "cmnd/sonoff_2/POWER", "ON")
+            publish("broker", "cmnd/sonoff_3/POWER", "ON")
+            publish("broker", "cmnd/sonoff_4/POWER", "ON")
+            sendCommand(innogy_licht_1, ON)
+        }
+end
+
+
+// NOTIFICATIONS
+
+rule "1 - Nivea Men"            // 1 - Nivea Men
+    when
+        Channel "amazondashbutton:dashbutton:85d7b6e0:press" triggered
+    then
+        sendTelegram("bot3", "DashButton 1 - Nivea Men")
+end
+
+rule "2 - Ariel"                // 2 - Ariel
+    when
+        Channel "amazondashbutton:dashbutton:4924ae04:press" triggered
+    then
+        sendTelegram("bot3", "DashButton 2 - Ariel")
+end
+
+rule "3 - brabantia"            // 3 - brabantia
+    when
+        Channel "amazondashbutton:dashbutton:5dc017ff:press" triggered
+    then
+        sendTelegram("bot3", "DashButton 3 - brabantia")
+end
+
+rule "4 - Kleenex"              // 4 - Kleenex
+    when
+        Channel "amazondashbutton:dashbutton:01e5c1b7:press" triggered
+    then
         sendTelegram("bot3", "DashButton 4 - Kleenex")
 end
 
-
-rule "All Lights Toggle" // 5 - Maya Mate
+rule "5 - Maya Mate"            // 5 - Maya Mate
     when
         Channel "amazondashbutton:dashbutton:ca615f26:press" triggered
     then
-        if(
-            Sonoff_Licht_1.state == ON ||
-            Sonoff_Licht_2.state == ON ||
-            Sonoff_Licht_3.state == ON ||
-            Sonoff_Licht_4.state == ON ||
-            innogy_licht_1.state == ON ) {
-            publish("broker", "cmnd/sonoff_1/POWER", "OFF")
-            publish("broker", "cmnd/sonoff_2/POWER", "OFF")
-            publish("broker", "cmnd/sonoff_3/POWER", "OFF")
-            publish("broker", "cmnd/sonoff_4/POWER", "OFF")
-            sendCommand(innogy_licht_1, OFF)
-            sendTelegram("bot3", "DashButton 5 - Maya Mate - all OFF")
-        } else {
-            publish("broker", "cmnd/sonoff_1/POWER", "ON")
-            publish("broker", "cmnd/sonoff_2/POWER", "ON")
-            publish("broker", "cmnd/sonoff_3/POWER", "ON")
-            publish("broker", "cmnd/sonoff_4/POWER", "ON")
-            sendCommand(innogy_licht_1, ON)
-            sendTelegram("bot3", "DashButton 5 - Maya Mate - all ON")
-        }
+        sendTelegram("bot3", "DashButton 5 - Maya Mate")
 end
 
-rule "New Button" // 6 - Jacobs
+rule "6 - Jacobs"               // 6 - Jacobs
     when
         Channel "amazondashbutton:dashbutton:2ec3b231:press" triggered
     then
-        if(
-            Sonoff_Licht_1.state == ON ||
-            Sonoff_Licht_2.state == ON ||
-            Sonoff_Licht_3.state == ON ||
-            Sonoff_Licht_4.state == ON ||
-            innogy_licht_1.state == ON ) {
-            publish("broker", "cmnd/sonoff_1/POWER", "OFF")
-            publish("broker", "cmnd/sonoff_2/POWER", "OFF")
-            publish("broker", "cmnd/sonoff_3/POWER", "OFF")
-            publish("broker", "cmnd/sonoff_4/POWER", "OFF")
-            sendCommand(innogy_licht_1, OFF)
-            sendTelegram("bot3", "DashButton 6 - Jacobs - all OFF")
-        } else {
-            publish("broker", "cmnd/sonoff_1/POWER", "ON")
-            publish("broker", "cmnd/sonoff_2/POWER", "ON")
-            publish("broker", "cmnd/sonoff_3/POWER", "ON")
-            publish("broker", "cmnd/sonoff_4/POWER", "ON")
-            sendCommand(innogy_licht_1, ON)
-            sendTelegram("bot3", "DashButton 6 - Jacobs - all ON")
-        }
+        sendTelegram("bot3", "DashButton 6 - Jacobs")
 end
+

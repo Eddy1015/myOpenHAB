@@ -44,32 +44,30 @@ rule "Alle Licher Check"
         Item Sonoff_Licht_4 changed /*or
         Item innogy_licht_1 changed*/
     then
-        if (all_lights_checking == 1) {
-            sendTelegram("bot1", "checking")
-            sendCommand(all_lights_checking, 1)
-            Thread::sleep(3000)
-            sendCommand(all_lights_checking, 0)
-        } else if (
+        if (
             Sonoff_Licht_1.state == ON ||
             Sonoff_Licht_2.state == ON ||
             Sonoff_Licht_3.state == ON ||
             Sonoff_Licht_4.state == ON /*||
             innogy_licht_1.state == ON*/ ) {
-                sendCommand(all_lights, "SOME")
+                //sendCommand(all_lights, "SOME")
+                all_lights.sendCommand("SOME")
         } else if (
             Sonoff_Licht_1.state == OFF &&
             Sonoff_Licht_2.state == OFF &&
             Sonoff_Licht_3.state == OFF &&
             Sonoff_Licht_4.state == OFF /*&&
             innogy_licht_1.state == OFF*/ ) {
-                sendCommand(all_lights, "OFF")
+                //sendCommand(all_lights, "OFF")
+                all_lights.sendCommand("OFF")
         } else if (
             Sonoff_Licht_1.state == ON &&
             Sonoff_Licht_2.state == ON &&
             Sonoff_Licht_3.state == ON &&
             Sonoff_Licht_4.state == ON /*&&
             innogy_licht_1.state == ON*/ ) {
-                sendCommand(all_lights, "ON")
+                //sendCommand(all_lights, "ON")
+                all_lights.sendCommand("OFF")
         }
 end
 
@@ -83,3 +81,5 @@ rule "Telegram Button"
         sendTelegram("bot2", "Huhu %s", telegram_msg.state)
         sendTelegram("bot3", "Huhu %s", telegram_msg.state)
 end
+
+

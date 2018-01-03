@@ -3,7 +3,7 @@ rule "VPN Status to Telegram"
 when
     Item VPN192168178201_Online changed
 then
-    sendTelegram("bot1", "item VPN is now %s.", VPN192168178201_Online.state.toString)
+    sendTelegram("bot2", "item VPN is now %s.", VPN192168178201_Online.state.toString)
 end
 
 
@@ -11,7 +11,7 @@ rule "Eddy daheim"
     when
         Item location_1 changed
     then
-        sendTelegram("bot1", "Eddy %s", location_1.state)
+        sendTelegram("bot2", "Eddy %s", location_1.state)
 end
 
 
@@ -19,7 +19,7 @@ rule "Cath daheim"
     when
         Item location_2 changed
     then 
-        sendTelegram("bot1", "Cath %s", location_2.state)
+        sendTelegram("bot2", "Cath %s", location_2.state)
 end
 
 
@@ -38,7 +38,7 @@ rule "Alle daheim"
             location_2.state == ON ) {
                 //sendCommand(all_lights, ON)
                 sendCommand(all_presences, ON)
-                sendTelegram("bot1", ".\nAlle zu Hause")
+                sendTelegram("bot2", "\nAlle zu Hause")
         }
 end
 
@@ -46,7 +46,5 @@ rule "Alle daheim"
     when
         Item all_presences changed
     then
-        sendCommand(location_1, all_presences.state)
-        sendCommand(location_2, all_presences.state)
-        sendTelegram("bot1", " \nAlle außer Haus\n\n---> ALLES AUS <---")
+        sendTelegram("bot2", "\nAlle außer Haus\n\n---> ALLES AUS <---")
 end

@@ -34,7 +34,7 @@ rule "Unter der Woche um 2130"
         Time cron "0 30 21 ? * MON-THU *"
     then
         if (Timer_1.state == ON) {
-            sendTelegram("bot1", "Weihnachtsbaum GEDIMMT")
+            sendTelegram("bot0", "Weihnachtsbaum GEDIMMT")
             sendCommand(Sonoff_Licht_3, OFF)
             Thread::sleep(1000)
             sendCommand(Sonoff_Licht_3, ON)
@@ -45,7 +45,7 @@ rule "Unter der Woche um 2230"
         Time cron "0 30 22 ? * MON-THU *"
     then
         if (Timer_1.state == ON) {
-            sendTelegram("bot1", "Weihnachtsbaum AUS")
+            sendTelegram("bot0", "Weihnachtsbaum AUS")
             sendCommand(Sonoff_Licht_3, OFF)
         }
 end
@@ -54,7 +54,7 @@ rule "Wochenende um 2330"
         Time cron " 0 30 23 ? * FRI,SAT,SUN *"
     then
         if (Timer_1.state == ON) {
-            sendTelegram("bot1", "Weihnachtsbaum GEDIMMT")
+            sendTelegram("bot0", "Weihnachtsbaum GEDIMMT")
             sendCommand(Sonoff_Licht_3, OFF)
             Thread::sleep(1000)
             sendCommand(Sonoff_Licht_3, ON)
@@ -66,8 +66,6 @@ rule "JEDE STUNDE"
         Time cron "0 0 0/1 1/1 * ? *"
     then
         if (Timer_1.state == ON) {
-            
-            sendTelegram("bot1", "Timer AN")
-            
+            sendTelegram("bot0", "Timer AN")
         }
 end
