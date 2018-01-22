@@ -3,30 +3,15 @@
 Group gOG                   "1. OG"             <firstfloor>        // Gruppe Obergeschoss
 Group OG_Arbeitszimmer      "Arbeitszimmer"     <office>    (gOG)
 Group OG_Bad                "Bad"               <bath>      (gOG)
-Group OG_Balkon             "Balkon"            <terrace>   (gOG)
 Group OG_Flur               "Flur"              <corridor>  (gOG)
 Group OG_Kueche             "Küche"             <pantry>    (gOG)
-Group OG_Schlafzimmer       "Schlafzimmer"      <bedroom>   (gOG)
 Group OG_Wohnzimmer         "Wohnzimmer"        <sofa>      (gOG)
 
-
-Group gUG                   "Keller"             <cellar>           // Gruppe Keller
-
-
 Group gSYS                  "System"            <settings>          // Gruppe System
-Group SYS_Licht_Timer       "Timer"             <time>      (gSYS)
 
 Group gWEATHER              "Wetter"            <sun_clouds>
-Group gRSSI
-Group gReachable
-Group gPresence             "Anwesenheit"
 
 Group gKAT                  "Kategorien"        <keyring>
-Group KAT_Licht             "Licht"             <light>     (gKAT)
+Group:Switch:OR(ON, OFF)    KAT_Licht             "Alle Lichter [%d]"             <light>     (gKAT)
 Group KAT_Heizung           "Heizung"           <radiator>  (gKAT)
-Group KAT_Messung           "Messung"           <line>      (gKAT)
-Group KAT_FritzBox          "FRITZ!Box"         <network>   (gKAT)
 
-Group gINNOGY               "All Innogy Items"
-Group INNOGY_Temp           "Temperaturen"      <line>      (gINNOGY)
-Group INNOGY_Humi           "Luftfeuchtigkeit"  <line>      (gINNOGY)

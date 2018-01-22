@@ -41,8 +41,8 @@ rule "Alle Licher Check"
         Item Sonoff_Licht_1 changed or
         Item Sonoff_Licht_2 changed or
         Item Sonoff_Licht_3 changed or
-        Item Sonoff_Licht_4 changed /*or
-        Item innogy_licht_1 changed*/
+        Item Sonoff_Licht_4 changed or
+        Item innogy_licht_1 changed
     then
         if (
             Sonoff_Licht_1.state == ON ||
@@ -50,8 +50,7 @@ rule "Alle Licher Check"
             Sonoff_Licht_3.state == ON ||
             Sonoff_Licht_4.state == ON /*||
             innogy_licht_1.state == ON*/ ) {
-                sendCommand(all_lights, "SOME")
-                //all_lights.sendCommand("SOME")
+                all_lights_check.sendCommand("SOME")
                 logError("XXX", "SOME")
         } else if (
             Sonoff_Licht_1.state == OFF &&
@@ -60,7 +59,7 @@ rule "Alle Licher Check"
             Sonoff_Licht_4.state == OFF /*&&
             innogy_licht_1.state == OFF*/ ) {
                 //sendCommand(all_lights, "OFF")
-                all_lights.sendCommand("OFF")
+                all_lights_check.sendCommand("OFF")
         } else if (
             Sonoff_Licht_1.state == ON &&
             Sonoff_Licht_2.state == ON &&
@@ -68,7 +67,7 @@ rule "Alle Licher Check"
             Sonoff_Licht_4.state == ON /*&&
             innogy_licht_1.state == ON*/ ) {
                 //sendCommand(all_lights, "ON")
-                all_lights.sendCommand("OFF")
+                all_lights_check.sendCommand("OFF")
         }
 end
 

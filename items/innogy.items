@@ -1,26 +1,33 @@
-// Innogy Zwischenstecker
-Switch  innogy_licht_1  "Innogy Licht"  <light> (OG_Kueche,KAT_Licht)   [ "Lighting" ]  {channel='innogysmarthome:PSS:SMARTHOME04:6080e69ebe634a99b8efa94afbad3a5e:switch'}
 
-// Inngoy AZ
-Number  innogy_thermostat_az_soll_temp  "Innogy Thermos AZ soll-Temp"   (gINNOGY,INNOGY_Temp)   [ "TargetTemperature" ]     {channel='innogysmarthome:RST:SMARTHOME04:93dbb366106c4970965287d5a1057dfe:set_temperature'}
-Number  innogy_thermostat_az_ist_temp   "Innogy Thermos AZ ist-Temp"    (gINNOGY,INNOGY_Temp)   [ "CurrentTemperature" ]    {channel='innogysmarthome:RST:SMARTHOME04:93dbb366106c4970965287d5a1057dfe:temperature'}
-Number  innogy_thermostat_az_ist_humi   "Innogy Thermos AZ ist-Humi"    (gINNOGY,INNOGY_Humi)   {channel='innogysmarthome:RST:SMARTHOME04:93dbb366106c4970965287d5a1057dfe:humidity'}
-Switch  innogy_thermostat_az_bat        "Innogy Thermos AZ battery"     (gINNOGY)               {channel='innogysmarthome:RST:SMARTHOME04:93dbb366106c4970965287d5a1057dfe:battery_low'}
 
-// Inngoy AZ
-Number  innogy_thermostat_bz_soll_temp  "Innogy Thermos BZ soll-Temp"   (gINNOGY,INNOGY_Temp)   [ "TargetTemperature" ]     {channel='innogysmarthome:RST:SMARTHOME04:4360e0a3ec2545b7be4cb27dd65c9c5c:set_temperature'}
-Number  innogy_thermostat_bz_ist_temp   "Innogy Thermos BZ ist-Temp"    (gINNOGY,INNOGY_Temp)   [ "CurrentTemperature" ]   {channel='innogysmarthome:RST:SMARTHOME04:4360e0a3ec2545b7be4cb27dd65c9c5c:temperature'}
-Number  innogy_thermostat_bz_ist_humi   "Innogy Thermos BZ ist-Humi"    (gINNOGY,INNOGY_Humi)   {channel='innogysmarthome:RST:SMARTHOME04:4360e0a3ec2545b7be4cb27dd65c9c5c:humidity'}
-Switch  innogy_thermostat_bz_bat        "Innogy Thermos BZ battery"     (gINNOGY)               {channel='innogysmarthome:RST:SMARTHOME04:4360e0a3ec2545b7be4cb27dd65c9c5c:battery_low'}
+Number INNOGY_Temp_Chart
+Number INNOGY_Humi_Chart
 
-// Inngoy WZ Thermostat 1
-Number  innogy_thermostat_wz1_soll_temp "Innogy Thermos WZ1 soll-Temp"  (gINNOGY,INNOGY_Temp)   [ "TargetTemperature" ]     {channel='innogysmarthome:RST:SMARTHOME04:ae0989c8772044d09919115b7770327a:set_temperature'}
-Number  innogy_thermostat_wz1_ist_temp  "Innogy Thermos WZ1 ist-Temp"   (gINNOGY,INNOGY_Temp)   [ "CurrentTemperature" ]    {channel='innogysmarthome:RST:SMARTHOME04:ae0989c8772044d09919115b7770327a:temperature'}
-Number  innogy_thermostat_wz1_ist_humi  "Innogy Thermos WZ1 ist-Humi"   (gINNOGY,INNOGY_Humi)   {channel='innogysmarthome:RST:SMARTHOME04:ae0989c8772044d09919115b7770327a:humidity'}
-Switch  innogy_thermostat_wz1_bat       "Innogy Thermos WZ1 battery"    (gINNOGY)               {channel='innogysmarthome:RST:SMARTHOME04:ae0989c8772044d09919115b7770327a:battery_low'}
+Group:Number:AVG         INNOGY_Temp    "Heizung Ø-Temp [%.1f °C]"      <temperature>
+Group:Number:AVG         INNOGY_Humi    "Heizung Ø-Humi [%.1f %%]"      <humidity>
+Group:Number:SUM         INNOGY_Bat     "Heizung Batterien leer [%d]"   <siren>
 
-// Innogy WZ Thermostat 2
-Number  innogy_thermostat_wz2_soll_temp  "Innogy Thermos WZ2 soll-Temp" (gINNOGY,INNOGY_Humi)   [ "TargetTemperature" ]     {channel='innogysmarthome:RST:SMARTHOME04:57ca7412f4354cbe93b06c6d073dfb54:set_temperature'}
-Number  innogy_thermostat_wz2_ist_temp   "Innogy Thermos WZ2 ist-Temp"  (gINNOGY,INNOGY_Temp)   [ "CurrentTemperature" ]    {channel='innogysmarthome:RST:SMARTHOME04:57ca7412f4354cbe93b06c6d073dfb54:temperature'}
-Number  innogy_thermostat_wz2_ist_humi   "Innogy Thermos WZ2 ist-Humi"  (gINNOGY,INNOGY_Humi)   {channel='innogysmarthome:RST:SMARTHOME04:57ca7412f4354cbe93b06c6d073dfb54:humidity'}
-Switch  innogy_thermostat_wz2_bat        "Innogy Thermos WZ2 battery"   (gINNOGY)               {channel='innogysmarthome:RST:SMARTHOME04:57ca7412f4354cbe93b06c6d073dfb54:battery_low'}
+// Innogy Zwischenstecker Küche
+Switch  OG_Kueche_Licht                     "Küche Stern"   (OG_Kueche, KAT_Licht)  [ "Lighting" ]  {channel='innogysmarthome:PSS:SMARTHOME04:6080e69ebe634a99b8efa94afbad3a5e:switch'}
+// Innogy Thermostat Arbeitszimmer
+Number  OG_Arbeitszimmer_Heizung            "Arbeitszimmer Heizung"             (OG_Arbeitszimmer)                  [ "TargetTemperature" ]     {channel='innogysmarthome:RST:SMARTHOME04:93dbb366106c4970965287d5a1057dfe:set_temperature'}
+Number  OG_Arbeitszimmer_Heizung_Ist_Temp   "Arbeitszimmer Heizung ist-Temp"    (INNOGY_Temp, OG_Arbeitszimmer)     [ "CurrentTemperature" ]    {channel='innogysmarthome:RST:SMARTHOME04:93dbb366106c4970965287d5a1057dfe:temperature'}
+Number  OG_Arbeitszimmer_Heizung_Ist_Humi   "Arbeitszimmer Heizung ist-Humi"    (INNOGY_Humi, OG_Arbeitszimmer)                                 {channel='innogysmarthome:RST:SMARTHOME04:93dbb366106c4970965287d5a1057dfe:humidity'}
+Switch  OG_Arbeitszimmer_Heizung_Bat        "Arbeitszimmer Heizung Batterie"    (INNOGY_Bat, OG_Arbeitszimmer)                                  {channel='innogysmarthome:RST:SMARTHOME04:93dbb366106c4970965287d5a1057dfe:battery_low'}
+// Inngoy Thermostat Badezimmer
+Number  OG_Badezimmer_Heizung               "Bad Heizung soll-Temp"             (OG_Bad)                            [ "TargetTemperature" ]     {channel='innogysmarthome:RST:SMARTHOME04:4360e0a3ec2545b7be4cb27dd65c9c5c:set_temperature'}
+Number  OG_Badezimmer_Heizung_Ist_Temp      "Bad Heizung ist-Temp"              (INNOGY_Temp, OG_Bad)               [ "CurrentTemperature" ]    {channel='innogysmarthome:RST:SMARTHOME04:4360e0a3ec2545b7be4cb27dd65c9c5c:temperature'}
+Number  OG_Badezimmer_Heizung_Ist_Humi      "Bad Heizung ist-Humi"              (INNOGY_Humi, OG_Bad)                                           {channel='innogysmarthome:RST:SMARTHOME04:4360e0a3ec2545b7be4cb27dd65c9c5c:humidity'}
+Switch  OG_Badezimmer_Heizung_Bat           "Bad Heizung Batterie"              (INNOGY_Bat, OG_Bad)                                            {channel='innogysmarthome:RST:SMARTHOME04:4360e0a3ec2545b7be4cb27dd65c9c5c:battery_low'}
+// Inngoy Thermostat Wohnzimmer 1
+Number  OG_Wohnzimmer_Heizung               "Wohnzimmer Heizung"                (OG_Wohnzimmer)                     [ "TargetTemperature" ]     {channel='innogysmarthome:RST:SMARTHOME04:ae0989c8772044d09919115b7770327a:set_temperature'}
+Number  OG_Wohnzimmer_Heizung_Ist_Temp      "Wohnzimmer Heizung ist-Temp"       (INNOGY_Temp, OG_Wohnzimmer)        [ "CurrentTemperature" ]    {channel='innogysmarthome:RST:SMARTHOME04:ae0989c8772044d09919115b7770327a:temperature'}
+Number  OG_Wohnzimmer_Heizung_Ist_Humi      "Wohnzimmer Heizung ist-Humi"       (INNOGY_Humi, OG_Wohnzimmer)                                    {channel='innogysmarthome:RST:SMARTHOME04:ae0989c8772044d09919115b7770327a:humidity'}
+Switch  OG_Wohnzimmer_Heizung_Bat           "Wohnzimmer Heizung Batterie"       (INNOGY_Bat, OG_Wohnzimmer)                                     {channel='innogysmarthome:RST:SMARTHOME04:ae0989c8772044d09919115b7770327a:battery_low'}
+// Innogy Thermostat Wohnzimmer 2
+Number  OG_Wohnzimmer_Heizung_2             "Wohnzimmer Heizung 2"              (OG_Wohnzimmer)                     [ "TargetTemperature" ]     {channel='innogysmarthome:RST:SMARTHOME04:57ca7412f4354cbe93b06c6d073dfb54:set_temperature'}
+Number  OG_Wohnzimmer_Heizung_2_Ist_Temp    "Wohnzimmer Heizung 2 ist-Temp"     (INNOGY_Temp, OG_Wohnzimmer)        [ "CurrentTemperature" ]    {channel='innogysmarthome:RST:SMARTHOME04:57ca7412f4354cbe93b06c6d073dfb54:temperature'}
+Number  OG_Wohnzimmer_Heizung_2_Ist_Humi    "Wohnzimmer Heizung 2 ist-Humi"     (INNOGY_Humi, OG_Wohnzimmer)                                    {channel='innogysmarthome:RST:SMARTHOME04:57ca7412f4354cbe93b06c6d073dfb54:humidity'}
+Switch  OG_Wohnzimmer_Heizung_2_Bat         "Wohnzimmer Heizung 2 Batterie"     (INNOGY_Bat, OG_Wohnzimmer)                                     {channel='innogysmarthome:RST:SMARTHOME04:57ca7412f4354cbe93b06c6d073dfb54:battery_low'}
+
+// vim: syntax=Xtend

@@ -1,0 +1,67 @@
+
+
+
+
+Number   Sonoff_RSSI_chart              "RSSI Chart Group"
+Number   Sonoff_Licht_2_RSSI_chart      "RSSI Chart data 2"
+Number   Sonoff_Licht_3_RSSI_chart      "RSSI Chart data 3"
+Number   Sonoff_Licht_4_RSSI_chart      "RSSI Chart data 4"
+
+Group:Switch:OR(ON, OFF)        KAT_Sonoff_Licht_Grp    "Alle Sonoffs [%s]"     <light>
+Group:Number:SUM                KAT_Unreach_Grp         "Nicht erreichbare Geräte [%d]"        <siren>
+Group:Number:AVG                gRSSI                   "Ø-Verbindung [%.1f %%]"         <line>
+
+Group:Number:SUM                Anwesenheit_Alle        "Alle Bewohner [%d]"
+Switch                          Anwesenheit_Eddy        "Eddy [MAP(presence.map):%s]"    (Anwesenheit_Alle)
+Switch                          Anwesenheit_Cath        "Cath [MAP(presence.map):%s]"    (Anwesenheit_Alle)
+
+Group:Number:SUM                SYS_Timer_Grp           "Timers [%d]"    <time>
+Switch                          Timer_1                 "Timer 1"   <time>  (SYS_Timer)
+Switch                          Timer_2                 "Timer 2"   <time>  (SYS_Timer)
+
+/*
+// Sonoff_Licht_1
+Switch  OG_Kueche_Licht_Boden       "Küche Licht"                  <light>     (OG_Kueche, KAT_Licht, KAT_Sonoff_Licht_Grp)       [ "Lighting" ] 
+    { mqtt=">[broker:cmnd/sonoff_1/POWER:command:*:default],
+            <[broker:stat/sonoff_1/POWER:state:default]" }
+Number  OG_Kueche_Licht_Boden_RSSI "Küche Licht: [%d %%]"                 <network>   (gRSSI)
+    { mqtt="<[broker:tele/sonoff_1/STATE:state:JSONPATH($.Wifi.RSSI)]" }
+Switch  OG_Kueche_Licht_Boden_Unreach "Küche Licht unreachable"           <siren>     (KAT_Unreach_Grp)
+    { mqtt="<[broker:tele/sonoff_1/LWT:state:MAP(reachable.map)]" }
+*/
+
+// Sonoff_Licht_2
+Switch  OG_Flur_Licht               "Flur Licht"                    <light>     (OG_Flur, KAT_Licht, KAT_Sonoff_Licht_Grp)         [ "Lighting" ]
+    { mqtt=">[broker:cmnd/sonoff_2/POWER:command:*:default],
+            <[broker:stat/sonoff_2/POWER:state:default]" }
+Number  OG_Flur_Licht_RSSI          "Flur Licht: RSSI [%d %%]"      <network>   (gRSSI)
+    { mqtt="<[broker:tele/sonoff_2/STATE:state:JSONPATH($.Wifi.RSSI)]" }
+Switch  OG_Flur_Licht_Unreach       "Sonoff_Licht_2 unreachable"    <siren>     (KAT_Unreach_Grp)
+    { mqtt="<[broker:tele/sonoff_2/LWT:state:MAP(reachable.map)]" }
+
+
+// Sonoff_Licht_3
+Switch  OG_Wohnzimmer_Licht_L       "Wohnzimmer Licht Links"        <light>     (OG_Wohnzimmer, KAT_Licht, KAT_Sonoff_Licht_Grp)   [ "Lighting" ] 
+    { mqtt=">[broker:cmnd/sonoff_3/POWER:command:*:default],
+            <[broker:stat/sonoff_3/POWER:state:default]" }
+Number  OG_Wohnzimmer_Licht_L_RSSI  "WZ Licht L: RSSI [%d %%]"      <network>   (gRSSI)
+    { mqtt="<[broker:tele/sonoff_3/STATE:state:JSONPATH($.Wifi.RSSI)]" }
+Switch  OG_Wohnzimmer_Licht_L_Unreach "WZ Licht L unreachable"      <siren>     (KAT_Unreach_Grp)          
+    { mqtt="<[broker:tele/sonoff_3/LWT:state:MAP(reachable.map)]" }
+
+
+// Sonoff_Licht_4
+Switch  OG_Wohnzimmer_Licht_R "Wohnzimmer Licht Rechts"             <light>     (OG_Wohnzimmer, KAT_Licht, KAT_Sonoff_Licht_Grp)   [ "Lighting" ] 
+    { mqtt=">[broker:cmnd/sonoff_4/POWER:command:*:default],
+            <[broker:stat/sonoff_4/POWER:state:default]" }
+Number  OG_Wohnzimmer_Licht_R_RSSI "WZ Licht R: RSSI [%d %%]"       <network>   (gRSSI)
+    { mqtt="<[broker:tele/sonoff_4/STATE:state:JSONPATH($.Wifi.RSSI)]" }
+Switch  OG_Wohnzimmer_Licht_R_Unreach "WZ Licht R unreachable"      <siren>     (KAT_Unreach_Grp)          
+    { mqtt="<[broker:tele/sonoff_4/LWT:state:MAP(reachable.map)]" }
+
+
+
+
+
+
+// vim: syntax=Xtend

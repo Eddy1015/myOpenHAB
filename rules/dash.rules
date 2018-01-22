@@ -29,11 +29,10 @@ rule "ALL Lights OFF"           // brabantia, Maya Mate, Jacobs
         Channel "amazondashbutton:dashbutton:2ec3b231:press" triggered          // 6 - Jacobs
     then
         if(
-            Sonoff_Licht_1.state == ON ||
-            Sonoff_Licht_2.state == ON ||
-            Sonoff_Licht_3.state == ON ||
-            Sonoff_Licht_4.state == ON ||
-            innogy_licht_1.state == ON ) {
+            OG_Flur_Licht.state == ON ||
+            OG_Wohnzimmer_Licht_L.state == ON ||
+            OG_Wohnzimmer_Licht_R.state == ON ||
+            OG_Kueche_Licht.state == ON ) {
             publish("broker", "cmnd/sonoff_1/POWER", "OFF")
             publish("broker", "cmnd/sonoff_2/POWER", "OFF")
             publish("broker", "cmnd/sonoff_3/POWER", "OFF")

@@ -9,9 +9,9 @@ rule "Timer 1 Switch"
 
         logDebug("RULE", "--> " + Timer_1.label)
         sendCommand(Test_item, ON)
-        if(timer1 == null) {
+        if(timer1 === null) {
             timer1 = createTimer(now.plusSeconds(5), [|
-                sendCommand(Test_item, OFF)
+                //sendCommand(Test_item, OFF)
                 timer1 = null
             ])
         }
@@ -24,40 +24,40 @@ rule "Täglich um 1800"
     when
         Time cron " 0 0 18 1/1 * ? *"
     then
-        if (Timer_1.state == ON) {
+        if (Timer_1.state === ON) {
             sendTelegram("bot2", "Weihnachtsbaum AN")
-            sendCommand(Sonoff_Licht_3, ON)
+            //sendCommand(Sonoff_Licht_3, ON)
         }
 end
 rule "Unter der Woche um 2130"
     when
         Time cron "0 30 21 ? * SUN-THU *"
     then
-        if (Timer_1.state == ON && Sonoff_Licht_3.state == ON) {
+        if (Timer_1.state === ON && Sonoff_Licht_3.state === ON) {
             sendTelegram("bot2", "Weihnachtsbaum GEDIMMT")
-            sendCommand(Sonoff_Licht_3, OFF)
+            //sendCommand(Sonoff_Licht_3, OFF)
             Thread::sleep(1000)
-            sendCommand(Sonoff_Licht_3, ON)
+            //sendCommand(Sonoff_Licht_3, ON)
         }
 end
 rule "Unter der Woche um 2230"
     when
         Time cron "0 30 22 ? * SUN-THU *"
     then
-        if (Timer_1.state == ON) {
+        if (Timer_1.state === ON) {
             sendTelegram("bot2", "Weihnachtsbaum AUS")
-            sendCommand(Sonoff_Licht_3, OFF)
+            //sendCommand(Sonoff_Licht_3, OFF)
         }
 end
 rule "Wochenende um 2330"
     when
         Time cron " 0 30 23 ? * FRI,SAT *"
     then
-        if (Timer_1.state == ON && Sonoff_Licht_3.state == ON) {
+        if (Timer_1.state === ON && Sonoff_Licht_3.state === ON) {
             sendTelegram("bot2", "Weihnachtsbaum GEDIMMT")
-            sendCommand(Sonoff_Licht_3, OFF)
+            //sendCommand(Sonoff_Licht_3, OFF)
             Thread::sleep(1000)
-            sendCommand(Sonoff_Licht_3, ON)
+            //sendCommand(Sonoff_Licht_3, ON)
         }
 end
 
@@ -65,7 +65,7 @@ rule "JEDE STUNDE"
     when
         Time cron "0 0 0/1 1/1 * ? *"
     then
-        if (Timer_1.state == ON) {
+        if (Timer_1.state === ON) {
             sendTelegram("bot1", "Timer AN")
         }
 end
