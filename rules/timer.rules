@@ -1,6 +1,21 @@
 
+rule "Timer Bett"
+    when
+        Item Timer_Bett received command ON
+    then
+        KAT_Licht.members.forEach[ i | i.sendCommand(OFF) ]
+        Thread::sleep(50)
+        OG_Flur_Licht.sendCommand(ON)
+end
+rule "Timer Bett 2"
+    when
+        Item Timer_Bett received command OFF
+    then
+        KAT_Licht.members.forEach[ i | i.sendCommand(OFF) ]
+end
 
-var Timer timer1 = null    
+
+//var Timer timer1 = null    
 
 rule "Timer 1 Switch"
     when

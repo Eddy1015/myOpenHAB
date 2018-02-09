@@ -1,0 +1,70 @@
+rule "Fernseher Power"
+    when
+        Item Sony_TV_Power changed
+    then
+        if(Sony_TV_Power.state == ON){
+            Sony_TV_Args.sendCommand("--count=5 KEY_POWER")
+        }else{
+            Sony_TV_Args.sendCommand("--count=5 KEY_POWER")
+        }
+        // wait for the command to complete
+        // State will be NULL if not used before or ON while command is executed
+        while(Sony_TV.state != OFF){
+            Thread::sleep(500)
+        }
+        // Trigger execution
+        Sony_TV.sendCommand(ON)
+        // Logging of command line result
+        logInfo("Sony_TV", "Result:" + Sony_TV_out.state )
+        /*
+        // If the returned string is just a number it can be parsed
+        // If not a regex or another transformation can be used
+        YourNumber.postUpdate(
+            (Integer::parseInt(Sony_TV_out.state.toString) as Number )
+        )
+        */
+end
+
+rule "Fernseher Lautstärke"
+    when
+        Item Sony_TV_Volume received command
+    then
+        while(Sony_TV.state != OFF){
+            Thread::sleep(500)
+        }
+        if(Sony_TV_Volume.state == ON){
+            Sony_TV_Args.sendCommand("--count=22 KEY_VOLUMEUP")
+        } else {
+            Sony_TV_Args.sendCommand("--count=22 KEY_VOLUMEDOWN")
+        }
+        while(Sony_TV.state != OFF){
+            Thread::sleep(500)
+        }
+        Sony_TV.sendCommand(ON)
+end
+
+rule "Fernseher Lautlos"
+    when
+        Item Sony_TV_Mute received command
+    then
+        while(Sony_TV.state != OFF){
+            Thread::sleep(500)
+        }
+        Sony_TV_Args.sendCommand("--count=5 KEY_MUTE")
+        while(Sony_TV.state != OFF){
+            Thread::sleep(500)
+        }
+        Sony_TV.sendCommand(ON)
+end
+
+
+rule "Receiver Power"
+    when
+        Item Sat_Receiver_Power changed
+    then
+        Sat_Receiver_Args.sendCommand("--count=5 KEY_POWER")
+        while(Sat_Receiver.state != OFF){
+            Thread::sleep(500)
+        }
+        Sat_Receiver.sendCommand(ON)
+end

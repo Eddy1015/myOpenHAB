@@ -1,5 +1,12 @@
 
 yahooweather:weather:speyer [ location=695771 ]
 
-network:pingdevice:192_168_178_101    [ hostname="192.167.178.101" ]
-network:pingdevice:192_168_178_102    [ hostname="192.167.178.102" ]
+//network:pingdevice:192_168_178_101    [ hostname="192.167.178.101" ]
+//network:pingdevice:192_168_178_102    [ hostname="192.167.178.102" ]
+
+// "%2$s" will be replace by the input channel, this makes it possible to use one command line with different arguments.
+// e.g: "ls" as <YOUR COMMAND> and "-a" or "-l" as additional argument set to the input channel in the rule.
+//Thing exec:command:yourcommand [ command="<YOUR COMMAND> %2$s", interval=0, autorun=false ]
+
+Thing exec:command:sony_tv 		[ command="irsend SEND_ONCE sony_tv %2$s", interval=0, autorun=false ]
+Thing exec:command:sat_receiver [ command="irsend SEND_ONCE sat_receiver %2$s", interval=0, autorun=false ]

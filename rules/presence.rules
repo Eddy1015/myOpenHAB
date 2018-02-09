@@ -5,3 +5,32 @@ when
 then
     sendTelegram("bot2", "item VPN is now %s.", VPN192168178201_Online.state.toString)
 end
+
+rule "Alle weg, alles aus"
+when
+    Item Anwesenheit_Eddy received command or
+    Item Anwesenheit_Cath received command
+then
+    logInfo("SWITCH", receivedCommand.toString)
+    switch (receivedCommand.toString) {
+        case Anwesenheit_Eddy.state==OFF && Anwesenheit_Cath.state==OFF: {
+                sendTelegram("bot2", "Anwesenheit: >> KEINER <<\nCath: %s \nEddy: %s", Anwesenheit_Cath.state, Anwesenheit_Eddy.state)
+                
+                //KAT_Licht.members.forEach[ i | i.sendCommand(OFF) ]
+            }
+        case Anwesenheit_Eddy.state==ON && Anwesenheit_Cath.state==ON: {
+                sendTelegram("bot2", "Anwesenheit: >> ALLE <<\nCath: %s \nEddy: %s", Anwesenheit_Cath.state, Anwesenheit_Eddy.state)
+            
+                //KAT_Licht.members.forEach[ i | i.sendCommand(ON) ]
+            }
+        case (Anwesenheit_Eddy.state==ON && Anwesenheit_Cath.state==OFF) || (Anwesenheit_Eddy.state==OFF && Anwesenheit_Cath.state==ON): {
+                sendTelegram("bot2", "Anwesenheit: >> EINER <<\nCath: %s \nEddy: %s", Anwesenheit_Cath.state, Anwesenheit_Eddy.state)
+                if (Anwesenheit_Timer.state==ON) {
+
+                    } else {
+                        Anwesenheit_Timer.sendCommand(ON)
+                    }
+                
+            }
+    }
+end

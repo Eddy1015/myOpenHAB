@@ -1,0 +1,10 @@
+
+// Sony_TV
+Switch Sony_TV {channel="exec:command:sony_tv:run"}
+String Sony_TV_Args {channel="exec:command:sony_tv:input"}
+String Sony_TV_out {channel="exec:command:sony_tv:output"}
+
+// Sat_Receiver
+Switch Sat_Receiver {channel="exec:command:sat_receiver:run"}
+String Sat_Receiver_Args {channel="exec:command:sat_receiver:input"}
+String Sat_Receiver_out {channel="exec:command:sat_receiver:output"}

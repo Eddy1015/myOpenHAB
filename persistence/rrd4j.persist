@@ -6,33 +6,33 @@ Strategies {
     default = everyUpdate, restoreOnStartup
 }
 Items {
-    Sonoff_Licht_1_RSSI : strategy = everyChange, everyMinute, restoreOnStartup
-    Sonoff_Licht_2_RSSI : strategy = everyChange, everyMinute, restoreOnStartup
-    Sonoff_Licht_3_RSSI : strategy = everyChange, everyMinute, restoreOnStartup
-    Sonoff_Licht_4_RSSI : strategy = everyChange, everyMinute, restoreOnStartup
+    OG_Kueche_Licht_Boden_RSSI      : strategy = everyChange, everyMinute, restoreOnStartup
+    OG_Flur_Licht_RSSI              : strategy = everyChange, everyMinute, restoreOnStartup
+    OG_Wohnzimmer_Licht_L_RSSI      : strategy = everyChange, everyMinute, restoreOnStartup
+    OG_Wohnzimmer_Licht_R_RSSI      : strategy = everyChange, everyMinute, restoreOnStartup
 
     INNOGY_Temp : strategy = everyChange, everyMinute, restoreOnStartup
     INNOGY_Humi : strategy = everyChange, everyMinute, restoreOnStartup
 
-    innogy_thermostat_wz1_ist_temp : strategy = everyChange, everyMinute, restoreOnStartup
-    innogy_thermostat_wz1_ist_humi : strategy = everyChange, everyMinute, restoreOnStartup
+    OG_Wohnzimmer_Heizung_Ist_Temp : strategy = everyChange, everyMinute, restoreOnStartup
+    OG_Wohnzimmer_Heizung_Ist_Humi : strategy = everyChange, everyMinute, restoreOnStartup
     
-    innogy_thermostat_wz2_ist_temp : strategy = everyChange, everyMinute, restoreOnStartup
-    innogy_thermostat_wz2_ist_humi : strategy = everyChange, everyMinute, restoreOnStartup
+    OG_Wohnzimmer_Heizung_2_Ist_Temp : strategy = everyChange, everyMinute, restoreOnStartup
+    OG_Wohnzimmer_Heizung_2_Ist_Humi : strategy = everyChange, everyMinute, restoreOnStartup
     
-    innogy_thermostat_az_ist_temp : strategy = everyChange, everyMinute, restoreOnStartup
-    innogy_thermostat_az_ist_humi : strategy = everyChange, everyMinute, restoreOnStartup
+    OG_Arbeitszimmer_Heizung_Ist_Temp : strategy = everyChange, everyMinute, restoreOnStartup
+    OG_Arbeitszimmer_Heizung_Ist_Humi : strategy = everyChange, everyMinute, restoreOnStartup
 
-    innogy_thermostat_bz_ist_temp : strategy = everyChange, everyMinute, restoreOnStartup
-    innogy_thermostat_bz_ist_humi : strategy = everyChange, everyMinute, restoreOnStartup
+    OG_Badezimmer_Heizung_Ist_Temp : strategy = everyChange, everyMinute, restoreOnStartup
+    OG_Badezimmer_Heizung_Ist_Humi : strategy = everyChange, everyMinute, restoreOnStartup
 
     Temperature : strategy = everyChange, everyMinute, restoreOnStartup
     Humidity : strategy = everyChange, everyMinute, restoreOnStartup
     Pressure : strategy = everyChange, everyMinute, restoreOnStartup
     gWAETHER : strategy = everyChange, everyMinute, restoreOnStartup
     gRSSI : strategy = everyChange, everyMinute, restoreOnStartup
-    gPresence : strategy = everyChange, everyMinute, restoreOnStartup
-    location_1 : strategy = everyChange, everyMinute, restoreOnStartup
-    location_2 : strategy = everyChange, everyMinute, restoreOnStartup
+    Anwesenheit_Alle : strategy = everyChange, everyMinute, restoreOnStartup
+    Anwesenheit_Eddy : strategy = everyChange, everyMinute, restoreOnStartup
+    Anwesenheit_Cath : strategy = everyChange, everyMinute, restoreOnStartup
     * : strategy = everyChange, restoreOnStartup
 }

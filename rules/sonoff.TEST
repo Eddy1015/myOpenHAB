@@ -1,3 +1,28 @@
+// Timer with switch
+var Timer timer1 = null
+rule "Timer 1 Switch"
+        when
+                Item Timer1Switch changed or Item Timer1Value changed
+        then
+                var count = Integer::parseInt(Timer1Value.state.toString)
+                if (Timer1Switch.state === ON) {
+                        if(timer1 === null) {
+                                        timer1 = createTimer(now.plusMinutes(count),[|
+                                        sendCommand(ug_br_li, OFF)
+                                        timer1 = null
+                                        sendCommand(Timer1Switch, OFF)
+                                        ])
+                        } else {
+                                timer1.reschedule(now.plusMinutes(count))
+                        }
+                } else {
+                        if(timer1 !== null) {
+                                timer1.cancel()
+                        }
+                }
+end
+
+
 // Work with a list of selected Sonoff modules
 val sonoff_device_ids = newArrayList(
     "sonoff_1",
