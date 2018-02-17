@@ -1,17 +1,35 @@
 
 rule "Timer Bett"
-    when
-        Item Timer_Bett received command ON
-    then
-        KAT_Licht.members.forEach[ i | i.sendCommand(OFF) ]
-        Thread::sleep(50)
-        OG_Flur_Licht.sendCommand(ON)
+when
+    Item Timer_Bett changed
+then
+    switch (receivedCommand.toString) {
+        case Timer_Bett.state==ON: {
+            KAT_Licht.members.forEach[ i | i.sendCommand(OFF) ]
+            Thread::sleep(50)
+            OG_Flur_Licht.sendCommand(ON)
+        }
+        case Timer_Bett.state==OFF: { 
+            KAT_Licht.members.forEach[ i | i.sendCommand(OFF) ]
+        }
+    }
 end
-rule "Timer Bett 2"
+
+
+rule "Timer Welcome"
     when
-        Item Timer_Bett received command OFF
+        Item Anwesenheit_Welcome changed
     then
-        KAT_Licht.members.forEach[ i | i.sendCommand(OFF) ]
+        switch (receivedCommand.toString) {
+            case Anwesenheit_Welcome.state==ON: {
+                OG_Flur_Licht.sendCommand(ON)
+            }
+            case Anwesenheit_Welcome.state==OFF: {
+                if (Anwesenheit_Alle.state==0) {
+                    OG_Flur_Licht.sendCommand(OFF)
+                }
+            }
+        }
 end
 
 
