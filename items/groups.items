@@ -12,6 +12,8 @@ Group gSYS                  "System"            <settings>          // Gruppe Sy
 Group gWEATHER              "Wetter"            <sun_clouds>
 
 Group gKAT                  "Kategorien"        <keyring>
-Group:Switch:OR(ON, OFF)    KAT_Licht             "Alle Lichter [%d]"             <light>     (gKAT)
+Group:Switch:SUM   	 		KAT_Licht_Anzahl    "Alle Lichter [%d]"             <light>     (gKAT)
+Group:Switch:OR(ON,OFF)    	KAT_Licht           "Alle Lichter [%s]"             <light>     (gKAT,KAT_Licht_Anzahl)
+Group:Switch:OR(ON,OFF)		OG_Wohnzimmer_Licht "Wohnzimmer-Licht"  			<sofa>      (gOG)
 Group KAT_Heizung           "Heizung"           <radiator>  (gKAT)
 

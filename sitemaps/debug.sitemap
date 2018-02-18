@@ -4,17 +4,16 @@ sitemap debug label="Debug"
         Switch  item=Anwesenheit_Eddy   icon="man_1"
         Switch  item=Anwesenheit_Cath   icon="woman_1"
     }
-    Frame item=KAT_Licht label="Experimente [%d]" {
+    Frame item=KAT_Licht_Anzahl label="Experimente [%d Lampen an]" {
         Switch  item=KAT_Sonoff_Licht_Grp
         Switch  item=KAT_Licht
         Text    item=INNOGY_Temp
         Text    item=INNOGY_Humi
         Text    item=gRSSI
         Text    item=KAT_Unreach_Grp
-        Switch  item=Timer_Bett
     }
     Frame label="TV" {
-        Switch  item=Sony_TV_Power
+        Switch  item=Sony_TV_Power          icon="025_cupboard_10"
         Switch  item=Sat_Receiver_Power
         Switch  item=Sony_TV_Volume         mappings=[OFF="-", ON="+"]
         Switch  item=Sony_TV_Mute           mappings=[OFF="an/aus"]
@@ -23,6 +22,7 @@ sitemap debug label="Debug"
     Frame item=SYS_Timer_Grp label="Timer [%d]" {
         Switch  item=Timer_1
         Switch  item=Timer_2
+        Switch  item=Anwesenheit_Welcome        icon="060_alarm_clock_1"
     }
     Frame label="Innogy Temperatur" {
         Text    item=OG_Arbeitszimmer_Heizung_Ist_Temp  icon="temperature"  valuecolor=[>23="red",>18="green",<=18="blue"]

@@ -7,24 +7,26 @@ Number   Sonoff_Licht_2_RSSI_chart      "RSSI Chart data 2"
 Number   Sonoff_Licht_3_RSSI_chart      "RSSI Chart data 3"
 Number   Sonoff_Licht_4_RSSI_chart      "RSSI Chart data 4"
 
-Group:Switch:OR(ON, OFF)        KAT_Sonoff_Licht_Grp    "Alle Sonoffs [%s]"     <light>
-Group:Number:SUM                KAT_Unreach_Grp         "Nicht erreichbare Geräte [%d]"        <siren>
+Group:Switch:OR(ON,OFF)         KAT_Sonoff_Licht_Grp    "Alle Sonoffs [%s]"     <085_wardrobe_2>
+Group:Switch:SUM                KAT_Unreach_Grp         "Nicht erreichbare Geräte [%d]"        <siren>
 Group:Number:AVG                gRSSI                   "Ø-Verbindung [%.1f %%]"         <line>
 
 Group:Number:SUM                Anwesenheit_Alle        "Alle Bewohner [%d]"
 Switch                          Anwesenheit_Eddy        "Eddy [MAP(presence.map):%s]"    (Anwesenheit_Alle)
 Switch                          Anwesenheit_Cath        "Cath [MAP(presence.map):%s]"    (Anwesenheit_Alle)
 Switch                          Anwesenheit_Timer       { expire="5s,command=OFF" }
+Switch                          Anwesenheit_Welcome     { expire="5m,command=OFF" }
 
 Switch                          Modus_Krank             "Krankheits-Modus"
 Switch                          Modus_Ferien            "Ferien-Modus"
 Switch                          Modus_Urlaub            "Urlaubs-Modus"
 Switch                          Modus_Weihnachten       "Weihnachts-Modus"
+Switch                          Modus_Altstadtfest      "Altstadtfests-Modus"
 
-Group:Number:SUM                SYS_Timer_Grp           "Timers [%d]"   <time>
+Group:Switch:SUM                SYS_Timer_Grp           "Timers [%d]"   <time>
 Switch                          Timer_1                 "Timer 1"       <time>  (SYS_Timer)
 Switch                          Timer_2                 "Timer 2"       <time>  (SYS_Timer)
-Switch                          Timer_Bett              "Bett-Timer"    <time>  (SYS_Timer) [ "Lighting" ]    { expire="30s,command=OFF" }    
+Switch                          Timer_Bett              "Feierabend"    <time>  (SYS_Timer) [ "Lighting" ]    { expire="30s,command=OFF" }    
 
 Switch  Sony_TV_Power       "Fernseher"                 <screen>        [ "Lighting" ]
 Switch  Sony_TV_Volume      "Fernseher Lautstärke"      <soundvolume>   [ "Lighting" ]
@@ -54,7 +56,7 @@ Switch  OG_Flur_Licht_Unreach       "Sonoff_Licht_2 unreachable"    <siren>     
 
 
 // Sonoff_Licht_3
-Switch  OG_Wohnzimmer_Licht_L       "Wohnzimmer Licht Links"        <light>     (OG_Wohnzimmer, KAT_Licht, KAT_Sonoff_Licht_Grp)   [ "Lighting" ] 
+Switch  OG_Wohnzimmer_Licht_L       "Wohnzimmer Licht Links"        <light>     (OG_Wohnzimmer, OG_Wohnzimmer_Licht, KAT_Licht, KAT_Sonoff_Licht_Grp)   [ "Lighting" ] 
     { mqtt=">[broker:cmnd/sonoff_3/POWER:command:*:default],
             <[broker:stat/sonoff_3/POWER:state:default]" }
 Number  OG_Wohnzimmer_Licht_L_RSSI  "WZ Licht L: RSSI [%d %%]"      <network>   (gRSSI)
@@ -64,7 +66,7 @@ Switch  OG_Wohnzimmer_Licht_L_Unreach "WZ Licht L unreachable"      <siren>     
 
 
 // Sonoff_Licht_4
-Switch  OG_Wohnzimmer_Licht_R "Wohnzimmer Licht Rechts"             <light>     (OG_Wohnzimmer, KAT_Licht, KAT_Sonoff_Licht_Grp)   [ "Lighting" ] 
+Switch  OG_Wohnzimmer_Licht_R "Wohnzimmer Licht Rechts"             <light>     (OG_Wohnzimmer, OG_Wohnzimmer_Licht, KAT_Licht, KAT_Sonoff_Licht_Grp)   [ "Lighting" ] 
     { mqtt=">[broker:cmnd/sonoff_4/POWER:command:*:default],
             <[broker:stat/sonoff_4/POWER:state:default]" }
 Number  OG_Wohnzimmer_Licht_R_RSSI "WZ Licht R: RSSI [%d %%]"       <network>   (gRSSI)

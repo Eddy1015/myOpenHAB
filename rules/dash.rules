@@ -4,22 +4,36 @@ rule "Livingroom Window Lights" // 1 - Nivea Men
     when
         Channel "amazondashbutton:dashbutton:85d7b6e0:press" triggered
     then
-        publish("broker", "cmnd/sonoff_3/POWER", "TOGGLE")
-        publish("broker", "cmnd/sonoff_4/POWER", "TOGGLE")
+        if (OG_Wohnzimmer_Licht.state == ON) {
+            OG_Wohnzimmer_Licht.members.forEach[ i | i.sendCommand(ON) ]
+        }
+        else if (OG_Flur_Licht.state == OFF) {
+            OG_Wohnzimmer_Licht.members.forEach[ i | i.sendCommand(OFF) ]
+        }
 end
 
 rule "Corridor Lights"          // 2 - Ariel
     when
         Channel "amazondashbutton:dashbutton:4924ae04:press" triggered
     then
-        publish("broker", "cmnd/sonoff_2/POWER", "TOGGLE")
+        if (OG_Flur_Licht.state == ON) {
+            OG_Flur_Licht.sendCommand(ON)
+        }
+        else if (OG_Flur_Licht.state == OFF) {
+            OG_Flur_Licht.sendCommand(ON)
+        }
 end
 
 rule "Kitchen Lights"           // 4 - Kleenex
     when
         Channel "amazondashbutton:dashbutton:01e5c1b7:press" triggered
     then
-        publish("broker", "cmnd/sonoff_1/POWER", "TOGGLE")
+        if (OG_Kueche_Licht.state == ON) {
+            OG_Kueche_Licht.sendCommand(ON)
+        }
+        else if (OG_Kueche_Licht.state == OFF) {
+            OG_Kueche_Licht.sendCommand(ON)
+        }
 end
 
 rule "ALL Lights OFF"           // brabantia, Maya Mate, Jacobs
@@ -28,22 +42,10 @@ rule "ALL Lights OFF"           // brabantia, Maya Mate, Jacobs
         Channel "amazondashbutton:dashbutton:ca615f26:press" triggered or       // 5 - Maya Mate
         Channel "amazondashbutton:dashbutton:2ec3b231:press" triggered          // 6 - Jacobs
     then
-        if(
-            OG_Flur_Licht.state == ON ||
-            OG_Wohnzimmer_Licht_L.state == ON ||
-            OG_Wohnzimmer_Licht_R.state == ON ||
-            OG_Kueche_Licht.state == ON ) {
-            publish("broker", "cmnd/sonoff_1/POWER", "OFF")
-            publish("broker", "cmnd/sonoff_2/POWER", "OFF")
-            publish("broker", "cmnd/sonoff_3/POWER", "OFF")
-            publish("broker", "cmnd/sonoff_4/POWER", "OFF")
-            sendCommand(innogy_licht_1, OFF)
+        if(KAT_Licht.state == ON ) {
+            KAT_Licht.members.forEach[ i | i.sendCommand(OFF) ]
         } else {
-            publish("broker", "cmnd/sonoff_1/POWER", "ON")
-            publish("broker", "cmnd/sonoff_2/POWER", "ON")
-            publish("broker", "cmnd/sonoff_3/POWER", "ON")
-            publish("broker", "cmnd/sonoff_4/POWER", "ON")
-            sendCommand(innogy_licht_1, ON)
+            KAT_Licht.members.forEach[ i | i.sendCommand(ON) ]
         }
 end
 
