@@ -1,10 +1,12 @@
 sitemap main label="Hauptmenü"
 {
-    Frame item=KAT_Licht label="Direktzugriff" {
+    Frame item=KAT_Licht_Anzahl label="Direktzugriff" {
         Switch  item=OG_Kueche_Licht        label="Innogy Licht"                icon="light"
         Switch  item=OG_Flur_Licht          label="Flur Licht"                  icon="011_dressing_table_2"
         Switch  item=OG_Wohnzimmer_Licht_L  label="Wohnzimmer Fenster - links"  icon="020_cupboard_12"
         Switch  item=OG_Wohnzimmer_Licht_R  label="Wohnzimmer Fenster - rechts" icon="030_desk_lamp_1"
+        Switch  item=OG_Schlafzimmer_Licht_E  label="Schlafzimmer - Eddy"  icon="020_cupboard_12"
+        Switch  item=OG_Schlafzimmer_Licht_C  label="Schlafzimmer - Cath" icon="030_desk_lamp_1"
     }
     Frame item=INNOGY_Temp {
         Text    item=OG_Wohnzimmer_Heizung_Ist_Temp      label="Wohnzimmer links"    icon="temperature"

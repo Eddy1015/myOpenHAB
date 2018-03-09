@@ -74,6 +74,46 @@ Number  OG_Wohnzimmer_Licht_R_RSSI "WZ Licht R: RSSI [%d %%]"       <network>   
 Switch  OG_Wohnzimmer_Licht_R_Unreach "WZ Licht R unreachable"      <siren>     (KAT_Unreach_Grp)          
     { mqtt="<[broker:tele/sonoff_4/LWT:state:MAP(reachable.map)]" }
 
+/*
+// Sonoff_Licht_5
+Switch  OG_Schlafzimmer "Schlafzimmer Licht"             <light>     (KAT_Licht, KAT_Sonoff_Licht_Grp)   [ "Lighting" ] 
+    { mqtt=">[broker:cmnd/sonoff_5/POWER:command:*:default],
+            <[broker:stat/sonoff_5/POWER:state:default]" }
+Number  OG_Schlafzimmer_RSSI "SZ Licht: RSSI [%d %%]"       <network>   (gRSSI)
+    { mqtt="<[broker:tele/sonoff_5/STATE:state:JSONPATH($.Wifi.RSSI)]" }
+Switch  OG_Schlafzimmer_Unreach "SZ Licht unreachable"      <siren>     (KAT_Unreach_Grp)          
+    { mqtt="<[broker:tele/sonoff_5/LWT:state:MAP(reachable.map)]" }
+*/
+
+
+// Sonoff S20 1 - WZ Schrank Buffet
+Switch  OG_Wohnzimmer_Licht_Schrank "Wohnzimmer Licht Schrank"             <light>     (OG_Wohnzimmer, OG_Wohnzimmer_Licht, KAT_Licht, KAT_Sonoff_Licht_Grp)   [ "Lighting" ] 
+    { mqtt=">[broker:cmnd/sonoff_s20_1/POWER:command:*:default],
+            <[broker:stat/sonoff_s20_1/POWER:state:default]" }
+Number  OG_Wohnzimmer_Licht_Schrank_RSSI "WZ Licht Schrank: RSSI [%d %%]"       <network>   (gRSSI)
+    { mqtt="<[broker:tele/sonoff_s20_1/STATE:state:JSONPATH($.Wifi.RSSI)]" }
+Switch  OG_Wohnzimmer_Licht_Schrank_Unreach "WZ Licht Schrank unreachable"      <siren>     (KAT_Unreach_Grp)          
+    { mqtt="<[broker:tele/sonoff_s20_1/LWT:state:MAP(reachable.map)]" }
+
+
+// Sonoff S20 1 - SZ Nachttisch Licht Eddy
+Switch  OG_Schlafzimmer_Licht_E "Schlafzimmer Licht Eddy"             <light>     (OG_Schlafzimmer, OG_Schlafzimmer_Licht, KAT_Licht, KAT_Sonoff_Licht_Grp)   [ "Lighting" ] 
+    { mqtt=">[broker:cmnd/sonoff_s20_2/POWER:command:*:default],
+            <[broker:stat/sonoff_s20_2/POWER:state:default]" }
+Number  OG_Schlafzimmer_Licht_E_RSSI "SZ Licht E: RSSI [%d %%]"       <network>   (gRSSI)
+    { mqtt="<[broker:tele/sonoff_s20_2/STATE:state:JSONPATH($.Wifi.RSSI)]" }
+Switch  OG_Schlafzimmer_Licht_E_Unreach "SZ Licht E unreachable"      <siren>     (KAT_Unreach_Grp)          
+    { mqtt="<[broker:tele/sonoff_s20_2/LWT:state:MAP(reachable.map)]" }
+
+
+// Sonoff S20 1 - SZ Nachttisch Licht Cath
+Switch  OG_Schlafzimmer_Licht_C "Schlafzimmer Licht Cath"             <light>     (OG_Schlafzimmer, OG_Schlafzimmer_Licht, KAT_Licht, KAT_Sonoff_Licht_Grp)   [ "Lighting" ] 
+    { mqtt=">[broker:cmnd/sonoff_s20_3/POWER:command:*:default],
+            <[broker:stat/sonoff_s20_3/POWER:state:default]" }
+Number  OG_Schlafzimmer_Licht_C_RSSI "SZ Licht C: RSSI [%d %%]"       <network>   (gRSSI)
+    { mqtt="<[broker:tele/sonoff_s20_3/STATE:state:JSONPATH($.Wifi.RSSI)]" }
+Switch  OG_Schlafzimmer_Licht_C_Unreach "SZ Licht C unreachable"      <siren>     (KAT_Unreach_Grp)          
+    { mqtt="<[broker:tele/sonoff_s20_3/LWT:state:MAP(reachable.map)]" }
 
 
 

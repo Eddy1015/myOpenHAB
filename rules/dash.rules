@@ -38,17 +38,24 @@ end
 
 rule "ALL Lights OFF"           // brabantia, Maya Mate, Jacobs
     when
-        Channel "amazondashbutton:dashbutton:5dc017ff:press" triggered or       // 3 - brabantia
         Channel "amazondashbutton:dashbutton:ca615f26:press" triggered or       // 5 - Maya Mate
         Channel "amazondashbutton:dashbutton:2ec3b231:press" triggered          // 6 - Jacobs
     then
-        if(KAT_Licht.state == ON ) {
+        if(OG_Schlafzimmer_Licht_C.state == ON ) {
             KAT_Licht.members.forEach[ i | i.sendCommand(OFF) ]
         } else {
-            KAT_Licht.members.forEach[ i | i.sendCommand(ON) ]
+            OG_Schlafzimmer_Licht_C.sendCommand(ON)
         }
 end
 
+/*
+rule "Notfall-Button"
+    when
+        Channel "amazondashbutton:dashbutton:5dc017ff:press" triggered or       // 3 - brabantia
+    then
+        sendTelegram("bot3", "> > > ALARM < < <\nCATHRINE BRAUCHT HILFE\n> > > ALARM < < <")
+end
+*/
 
 // NOTIFICATIONS
 

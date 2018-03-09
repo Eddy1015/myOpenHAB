@@ -1,0 +1,31 @@
+
+
+Group    iCloud_Group
+
+String   iPhone_E_BatteryStatus             "Battery Status [%s %%]"             <battery> (iCloud_Group) {channel="icloud:device:b736a010:dea0e979:batteryStatus"}
+Number   iPhone_E_BatteryLevel              "Battery Level [%.0f]"               <battery> (iCloud_Group) {channel="icloud:device:b736a010:dea0e979:batteryLevel"}
+Switch   iPhone_E_FindMyPhone               "Trigger Find My iPhone"                       (iCloud_Group) {channel="icloud:device:b736a010:dea0e979:findMyPhone"}
+Location iPhone_E_Location                  "Coordinates"                                  (iCloud_Group) {channel="icloud:device:b736a010:dea0e979:location"}
+Number   iPhone_E_LocationAccuracy          "Coordinates Accuracy [%.0f m]"                (iCloud_Group) {channel="icloud:device:b736a010:dea0e979:locationAccuracy"}
+DateTime iPhone_E_LocationLastUpdate        "Last Update [%1$td.%1$tm.%1$tY, %1$tH:%1$tM]" (iCloud_Group) {channel="icloud:device:b736a010:dea0e979:locationLastUpdate"}
+
+String   iPhone_C_BatteryStatus             "Battery Status [%s %%]"             <battery> (iCloud_Group) {channel="icloud:device:b736a010:2c96f893:batteryStatus"}
+Number   iPhone_C_BatteryLevel              "Battery Level [%.0f]"               <battery> (iCloud_Group) {channel="icloud:device:b736a010:2c96f893:batteryLevel"}
+Switch   iPhone_C_FindMyPhone               "Trigger Find My iPhone"                       (iCloud_Group) {channel="icloud:device:b736a010:2c96f893:findMyPhone"}
+Location iPhone_C_Location                  "Coordinates"                                  (iCloud_Group) {channel="icloud:device:b736a010:2c96f893:location"}
+Number   iPhone_C_LocationAccuracy          "Coordinates Accuracy [%.0f m]"                (iCloud_Group) {channel="icloud:device:b736a010:2c96f893:locationAccuracy"}
+DateTime iPhone_C_LocationLastUpdate        "Last Update [%1$td.%1$tm.%1$tY, %1$tH:%1$tM]" (iCloud_Group) {channel="icloud:device:b736a010:2c96f893:locationLastUpdate"}
+
+String   iPhone_H_BatteryStatus             "Battery Status [%s %%]"             <battery> (iCloud_Group) {channel="icloud:device:b736a010:d7669fcc:batteryStatus"}
+Number   iPhone_H_BatteryLevel              "Battery Level [%.0f]"               <battery> (iCloud_Group) {channel="icloud:device:b736a010:d7669fcc:batteryLevel"}
+Switch   iPhone_H_FindMyPhone               "Trigger Find My iPhone"                       (iCloud_Group) {channel="icloud:device:b736a010:d7669fcc:findMyPhone"}
+Location iPhone_H_Location                  "Coordinates"                                  (iCloud_Group) {channel="icloud:device:b736a010:d7669fcc:location"}
+Number   iPhone_H_LocationAccuracy          "Coordinates Accuracy [%.0f m]"                (iCloud_Group) {channel="icloud:device:b736a010:d7669fcc:locationAccuracy"}
+DateTime iPhone_H_LocationLastUpdate        "Last Update [%1$td.%1$tm.%1$tY, %1$tH:%1$tM]" (iCloud_Group) {channel="icloud:device:b736a010:d7669fcc:locationLastUpdate"}
+
+String   iPhone_U_BatteryStatus             "Battery Status [%s %%]"             <battery> (iCloud_Group) {channel="icloud:device:b736a010:54bf0052:batteryStatus"}
+Number   iPhone_U_BatteryLevel              "Battery Level [%.0f]"               <battery> (iCloud_Group) {channel="icloud:device:b736a010:54bf0052:batteryLevel"}
+Switch   iPhone_U_FindMyPhone               "Trigger Find My iPhone"                       (iCloud_Group) {channel="icloud:device:b736a010:54bf0052:findMyPhone"}
+Location iPhone_U_Location                  "Coordinates"                                  (iCloud_Group) {channel="icloud:device:b736a010:54bf0052:location"}
+Number   iPhone_U_LocationAccuracy          "Coordinates Accuracy [%.0f m]"                (iCloud_Group) {channel="icloud:device:b736a010:54bf0052:locationAccuracy"}
+DateTime iPhone_U_LocationLastUpdate        "Last Update [%1$td.%1$tm.%1$tY, %1$tH:%1$tM]" (iCloud_Group) {channel="icloud:device:b736a010:54bf0052:locationLastUpdate"}

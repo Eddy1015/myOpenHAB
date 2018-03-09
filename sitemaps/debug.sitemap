@@ -23,6 +23,7 @@ sitemap debug label="Debug"
         Switch  item=Timer_1
         Switch  item=Timer_2
         Switch  item=Anwesenheit_Welcome        icon="060_alarm_clock_1"
+        Switch  item=Timer_Bett
     }
     Frame label="Innogy Temperatur" {
         Text    item=OG_Arbeitszimmer_Heizung_Ist_Temp  icon="temperature"  valuecolor=[>23="red",>18="green",<=18="blue"]

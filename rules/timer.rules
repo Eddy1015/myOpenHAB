@@ -3,9 +3,12 @@ rule "Timer Bett"
 when
     Item Timer_Bett changed
 then
-    switch (receivedCommand.toString) {
+    switch (Timer_Bett.state) {
         case Timer_Bett.state==ON: {
-            KAT_Licht.members.forEach[ i | i.sendCommand(OFF) ]
+            KAT_Licht.members.forEach[ i | 
+                i.sendCommand(OFF)
+                Thread::sleep(5000)
+            ]
             Thread::sleep(50)
             OG_Flur_Licht.sendCommand(ON)
         }
@@ -20,13 +23,15 @@ rule "Timer Welcome"
     when
         Item Anwesenheit_Welcome changed
     then
-        switch (receivedCommand.toString) {
+        logInfo("RULE", "###############################" + Anwesenheit_Welcome.state)
+        switch (Anwesenheit_Welcome.state) {
             case Anwesenheit_Welcome.state==ON: {
                 OG_Flur_Licht.sendCommand(ON)
             }
             case Anwesenheit_Welcome.state==OFF: {
+                OG_Flur_Licht.sendCommand(OFF)
                 if (Anwesenheit_Alle.state==0) {
-                    OG_Flur_Licht.sendCommand(OFF)
+                    //OG_Flur_Licht.sendCommand(OFF)
                 }
             }
         }

@@ -6,6 +6,7 @@ Group OG_Bad                "Bad"               <bath>      (gOG)
 Group OG_Flur               "Flur"              <corridor>  (gOG)
 Group OG_Kueche             "Küche"             <pantry>    (gOG)
 Group OG_Wohnzimmer         "Wohnzimmer"        <sofa>      (gOG)
+Group OG_Schlafzimmer		"Schlafzimmer"		<bed>		(gOG)
 
 Group gSYS                  "System"            <settings>          // Gruppe System
 
@@ -14,6 +15,7 @@ Group gWEATHER              "Wetter"            <sun_clouds>
 Group gKAT                  "Kategorien"        <keyring>
 Group:Switch:SUM   	 		KAT_Licht_Anzahl    "Alle Lichter [%d]"             <light>     (gKAT)
 Group:Switch:OR(ON,OFF)    	KAT_Licht           "Alle Lichter [%s]"             <light>     (gKAT,KAT_Licht_Anzahl)
+Group 						KAT_Heizung         "Heizung"           			<radiator>  (gKAT)
 Group:Switch:OR(ON,OFF)		OG_Wohnzimmer_Licht "Wohnzimmer-Licht"  			<sofa>      (gOG)
-Group KAT_Heizung           "Heizung"           <radiator>  (gKAT)
+Group:Switch:OR(ON,OFF)		OG_Schlafzimmer_Licht "Schlafzimmer-Licht"  		<sofa>      (gOG)
 
