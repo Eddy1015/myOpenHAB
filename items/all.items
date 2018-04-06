@@ -1,7 +1,4 @@
 
-
-
-
 Number   Sonoff_RSSI_chart              "RSSI Chart Group"
 Number   Sonoff_Licht_2_RSSI_chart      "RSSI Chart data 2"
 Number   Sonoff_Licht_3_RSSI_chart      "RSSI Chart data 3"
@@ -26,13 +23,13 @@ Switch                          Modus_Altstadtfest      "Altstadtfests-Modus"
 Group:Switch:SUM                SYS_Timer_Grp           "Timers [%d]"   <time>
 Switch                          Timer_1                 "Timer 1"       <time>  (SYS_Timer)
 Switch                          Timer_2                 "Timer 2"       <time>  (SYS_Timer)
-Switch                          Timer_Bett              "Feierabend"    <time>  (SYS_Timer) [ "Lighting" ]    { expire="30s,command=OFF" }    
+Switch                          Timer_Bett              "Feierabend"    <time>  (SYS_Timer) [ "Switchable" ]    { expire="1m,command=OFF" }
 
-Switch  Sony_TV_Power       "Fernseher"                 <screen>        [ "Lighting" ]
-Switch  Sony_TV_Volume      "Fernseher Lautstärke"      <soundvolume>   [ "Lighting" ]
-Switch  Sony_TV_Mute        "Fernseher Lautlos"         <soundvolume>   [ "Lighting" ]
+Switch  Sony_TV_Power       "Fernseher"                 <screen>        [ "Switchable" ]
+Switch  Sony_TV_Volume      "Fernseher Lautstärke"      <soundvolume>   [ "Switchable" ]
+Switch  Sony_TV_Mute        "Fernseher Lautlos"         <soundvolume>   [ "Switchable" ]
 
-Switch  Sat_Receiver_Power  "Receiver"                  <player>        [ "Lighting" ]
+Switch  Sat_Receiver_Power  "Receiver"                  <player>        [ "Switchable" ]
 
 /*
 // Sonoff_Licht_1
@@ -96,7 +93,7 @@ Switch  OG_Wohnzimmer_Licht_Schrank_Unreach "WZ Licht Schrank unreachable"      
     { mqtt="<[broker:tele/sonoff_s20_1/LWT:state:MAP(reachable.map)]" }
 
 
-// Sonoff S20 1 - SZ Nachttisch Licht Eddy
+// Sonoff S20 2 - SZ Nachttisch Licht Eddy
 Switch  OG_Schlafzimmer_Licht_E "Schlafzimmer Licht Eddy"             <light>     (OG_Schlafzimmer, OG_Schlafzimmer_Licht, KAT_Licht, KAT_Sonoff_Licht_Grp)   [ "Lighting" ] 
     { mqtt=">[broker:cmnd/sonoff_s20_2/POWER:command:*:default],
             <[broker:stat/sonoff_s20_2/POWER:state:default]" }
@@ -106,7 +103,7 @@ Switch  OG_Schlafzimmer_Licht_E_Unreach "SZ Licht E unreachable"      <siren>   
     { mqtt="<[broker:tele/sonoff_s20_2/LWT:state:MAP(reachable.map)]" }
 
 
-// Sonoff S20 1 - SZ Nachttisch Licht Cath
+// Sonoff S20 3 - SZ Nachttisch Licht Cath
 Switch  OG_Schlafzimmer_Licht_C "Schlafzimmer Licht Cath"             <light>     (OG_Schlafzimmer, OG_Schlafzimmer_Licht, KAT_Licht, KAT_Sonoff_Licht_Grp)   [ "Lighting" ] 
     { mqtt=">[broker:cmnd/sonoff_s20_3/POWER:command:*:default],
             <[broker:stat/sonoff_s20_3/POWER:state:default]" }
@@ -116,6 +113,61 @@ Switch  OG_Schlafzimmer_Licht_C_Unreach "SZ Licht C unreachable"      <siren>   
     { mqtt="<[broker:tele/sonoff_s20_3/LWT:state:MAP(reachable.map)]" }
 
 
+// Sonoff S20 4 - WZ Licht Telefon
+Switch  OG_Wohnzimmer_Licht_Telefon "Wohnzimmer Licht Telefon"             <023_cupboard_11>     (OG_Wohnzimmer, OG_Wohnzimmer_Licht, KAT_Licht, KAT_Sonoff_Licht_Grp)   [ "Lighting" ] 
+    { mqtt=">[broker:cmnd/sonoff_s20_4/POWER:command:*:default],
+            <[broker:stat/sonoff_s20_4/POWER:state:default]" }
+Number  OG_Wohnzimmer_Licht_Telefon_RSSI "WZ Licht Telefon: RSSI [%d %%]"       <network>   (gRSSI)
+    { mqtt="<[broker:tele/sonoff_s20_4/STATE:state:JSONPATH($.Wifi.RSSI)]" }
+Switch  OG_Wohnzimmer_Licht_Telefon_Unreach "WZ Licht Telefon unreachable"      <siren>     (KAT_Unreach_Grp)          
+    { mqtt="<[broker:tele/sonoff_s20_4/LWT:state:MAP(reachable.map)]" }
+
+
+// Sonoff S20 5 - WZ Licht Couch
+Switch  OG_Wohnzimmer_Licht_Couch "Wohnzimmer Licht Couch"             <light>     (OG_Wohnzimmer, OG_Wohnzimmer_Licht, KAT_Licht, KAT_Sonoff_Licht_Grp)   [ "Lighting" ] 
+    { mqtt=">[broker:cmnd/sonoff_s20_5/POWER:command:*:default],
+            <[broker:stat/sonoff_s20_5/POWER:state:default]" }
+Number  OG_Wohnzimmer_Licht_Couch_RSSI "WZ Licht Couch: RSSI [%d %%]"       <network>   (gRSSI)
+    { mqtt="<[broker:tele/sonoff_s20_5/STATE:state:JSONPATH($.Wifi.RSSI)]" }
+Switch  OG_Wohnzimmer_Licht_Couch_Unreach "WZ Licht Couch unreachable"      <siren>     (KAT_Unreach_Grp)          
+    { mqtt="<[broker:tele/sonoff_s20_5/LWT:state:MAP(reachable.map)]" }
+
+
+// Sonoff S20 6 - WZ Licht Couch
+/*Switch  OG_Wohnzimmer_Licht_Couch "Wohnzimmer Licht Couch Color"             <light>     (OG_Wohnzimmer, OG_Wohnzimmer_Licht, KAT_Licht, KAT_Sonoff_Licht_Grp)   [ "Lighting" ] 
+    { mqtt=">[broker:cmnd/sonoff_s20_6/POWER:command:*:default],
+            <[broker:stat/sonoff_s20_6/POWER:state:default]" }
+Number  OG_Wohnzimmer_Licht_Couch_RSSI "WZ Licht Couch: RSSI [%d %%]"       <network>   (gRSSI)
+    { mqtt="<[broker:tele/sonoff_s20_6/STATE:state:JSONPATH($.Wifi.RSSI)]" }
+Switch  OG_Wohnzimmer_Licht_Couch_Unreach "WZ Licht Couch unreachable"      <siren>     (KAT_Unreach_Grp)          
+    { mqtt="<[broker:tele/sonoff_s20_6/LWT:state:MAP(reachable.map)]" }
+    */
+
+// Sonoff S20 7 - Kaffeemaschine
+Switch  OG_Kueche_Kaffee "Kaffeemaschine"             <light>     (OG_Kueche)   [ "Switchable" ]    
+    { mqtt=">[broker:cmnd/sonoff_s20_7/POWER:command:*:default],
+            <[broker:stat/sonoff_s20_7/POWER:state:default]", expire="15m,command=OFF" }
+Number  OG_Kueche_Kaffee_RSSI "WZ Licht Couch: RSSI [%d %%]"       <network>   (gRSSI)
+    { mqtt="<[broker:tele/sonoff_s20_7/STATE:state:JSONPATH($.Wifi.RSSI)]" }
+Switch  OG_Kueche_Kaffee_Unreach "WZ Licht Couch unreachable"      <siren>     (KAT_Unreach_Grp)          
+    { mqtt="<[broker:tele/sonoff_s20_7/LWT:state:MAP(reachable.map)]" }
+
+/*
+// Sonoff B1 - WZ Leselicht
+Switch  OG_Wohnzimmer_Licht_Couch "Wohnzimmer Licht Couch Color"             <light>     (OG_Wohnzimmer, OG_Wohnzimmer_Licht, KAT_Licht, KAT_Sonoff_Licht_Grp)   [ "Lighting" ] 
+    { mqtt=">[broker:cmnd/sonoff_b1_1/POWER:command:*:default],
+            <[broker:stat/sonoff_b1_1/POWER:state:default]" }
+Number  OG_Wohnzimmer_Licht_Couch_RSSI "WZ Licht Couch: RSSI [%d %%]"       <network>   (gRSSI)
+    { mqtt="<[broker:tele/sonoff_b1_1/STATE:state:JSONPATH($.Wifi.RSSI)]" }
+Switch  OG_Wohnzimmer_Licht_Couch_Unreach "WZ Licht Couch unreachable"      <siren>     (KAT_Unreach_Grp)          
+    { mqtt="<[broker:tele/sonoff_b1_1/LWT:state:MAP(reachable.map)]" }
+Color   OG_Wohnzimmer_Licht_Couch_Color "WZ Licht Couch Color"             <light>      [ "Lighting" ] 
+    { mqtt=">[broker:cmnd/sonoff_b1_1/COLOR:command:*:default],
+            <[broker:stat/sonoff_b1_1/POWER:state:default]" }
+Switch  OG_Wohnzimmer_Licht_Couch_Dimmer "Wohnzimmer Licht Couch Dimmer"             <light>    [ "Lighting" ] 
+    { mqtt=">[broker:cmnd/sonoff_b1_1/DIMMER:command:*:default],
+            <[broker:stat/sonoff_b1_1/POWER:state:default]" }
+*/
 
 
 

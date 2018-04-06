@@ -36,10 +36,20 @@ rule "Kitchen Lights"           // 4 - Kleenex
         }
 end
 
-rule "ALL Lights OFF"           // brabantia, Maya Mate, Jacobs
+rule "Nachtlicht Eddy"           // Nerf
     when
-        Channel "amazondashbutton:dashbutton:ca615f26:press" triggered or       // 5 - Maya Mate
-        Channel "amazondashbutton:dashbutton:2ec3b231:press" triggered          // 6 - Jacobs
+        Channel "amazondashbutton:dashbutton:4797cd89:press" triggered          // 10 - Nerf
+    then
+        if(OG_Schlafzimmer_Licht_E.state == ON ) {
+            KAT_Licht.members.forEach[ i | i.sendCommand(OFF) ]
+        } else {
+            OG_Schlafzimmer_Licht_E.sendCommand(ON)
+        }
+end
+
+rule "Nachtlicht Cath"           // Maya Mate
+    when
+        Channel "amazondashbutton:dashbutton:ca615f26:press" triggered          // 5 - Maya Mate
     then
         if(OG_Schlafzimmer_Licht_C.state == ON ) {
             KAT_Licht.members.forEach[ i | i.sendCommand(OFF) ]
@@ -48,10 +58,12 @@ rule "ALL Lights OFF"           // brabantia, Maya Mate, Jacobs
         }
 end
 
+
 /*
 rule "Notfall-Button"
     when
         Channel "amazondashbutton:dashbutton:5dc017ff:press" triggered or       // 3 - brabantia
+        Channel "amazondashbutton:dashbutton:2ec3b231:press" triggered          // 6 - Jacobs
     then
         sendTelegram("bot3", "> > > ALARM < < <\nCATHRINE BRAUCHT HILFE\n> > > ALARM < < <")
 end
@@ -99,5 +111,12 @@ rule "6 - Jacobs"               // 6 - Jacobs
         Channel "amazondashbutton:dashbutton:2ec3b231:press" triggered
     then
         sendTelegram("bot3", "DashButton 6 - Jacobs")
+end
+
+rule "10 - Nerf"               // 10 - Nerf
+    when
+        Channel "amazondashbutton:dashbutton:4797cd89:press" triggered
+    then
+        sendTelegram("bot3", "DashButton 10 - Nerf")
 end
 

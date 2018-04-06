@@ -7,6 +7,9 @@ sitemap debug label="Debug"
     Frame item=KAT_Licht_Anzahl label="Experimente [%d Lampen an]" {
         Switch  item=KAT_Sonoff_Licht_Grp
         Switch  item=KAT_Licht
+        Switch  item=OG_Wohnzimmer_Licht
+        Switch  item=OG_Wohnzimmer_Licht_Couch
+        Switch  item=OG_Wohnzimmer_Licht_Telefon
         Text    item=INNOGY_Temp
         Text    item=INNOGY_Humi
         Text    item=gRSSI

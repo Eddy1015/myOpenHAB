@@ -5,12 +5,11 @@ when
 then
     switch (Timer_Bett.state) {
         case Timer_Bett.state==ON: {
-            KAT_Licht.members.forEach[ i | 
-                i.sendCommand(OFF)
-                Thread::sleep(5000)
-            ]
+            KAT_Licht.members.forEach[ i | i.sendCommand(OFF) ]
             Thread::sleep(50)
             OG_Flur_Licht.sendCommand(ON)
+            Thread::sleep(5000)
+            OG_Schlafzimmer.members.forEach[ i | i.sendCommand(ON) ]
         }
         case Timer_Bett.state==OFF: { 
             KAT_Licht.members.forEach[ i | i.sendCommand(OFF) ]
