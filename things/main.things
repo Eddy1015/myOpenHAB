@@ -1,5 +1,5 @@
 
-yahooweather:weather:speyer [ location=695771 ]
+//yahooweather:weather:speyer [ location=12835447 ]
 
 //network:pingdevice:192_168_178_101    [ hostname="192.167.178.101" ]
 //network:pingdevice:192_168_178_102    [ hostname="192.167.178.102" ]
@@ -10,3 +10,5 @@ yahooweather:weather:speyer [ location=695771 ]
 
 Thing exec:command:sony_tv 		[ command="irsend SEND_ONCE sony_tv %2$s", interval=0, autorun=false ]
 Thing exec:command:sat_receiver [ command="irsend SEND_ONCE sat_receiver %2$s", interval=0, autorun=false ]
+
+Thing network:servicedevice:Raspberry_Pi [ hostname="192.168.178.100" ]

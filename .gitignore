@@ -1,2 +1,3 @@
 *.cfg
 !logging.cfg
+openhab2-backup-*.zip

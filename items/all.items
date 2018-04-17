@@ -31,6 +31,10 @@ Switch  Sony_TV_Mute        "Fernseher Lautlos"         <soundvolume>   [ "Switc
 
 Switch  Sat_Receiver_Power  "Receiver"                  <player>        [ "Switchable" ]
 
+Switch  Raspi               "Raspi Status"          { channel='network:servicedevice:Raspberry_Pi:online'}
+Number  Raspi_ping          "Raspi Ping"            { channel='network:servicedevice:Raspberry_Pi:latency'}
+DateTime  Raspi_lastseen    "Raspi Last"            { channel='network:servicedevice:Raspberry_Pi:lastseen'}
+
 /*
 // Sonoff_Licht_1
 Switch  OG_Kueche_Licht_Boden       "Küche Licht"                   <light>     (OG_Kueche, KAT_Licht, KAT_Sonoff_Licht_Grp)       [ "Lighting" ] 

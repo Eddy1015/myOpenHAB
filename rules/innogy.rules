@@ -2,29 +2,29 @@
 
 rule "Innogy SOLL"
     when
-        Item innogy_thermostat_az_soll_temp changed
+        Item OG_Arbeitszimmer_Heizung changed
     then
-        sendTelegram("bot2", "Innogy AZ\nSOLL -> %s °C", innogy_thermostat_az_soll_temp.state)
+        sendTelegram("bot2", "Innogy AZ\nSOLL -> %s °C", OG_Arbeitszimmer_Heizung.state)
 end
 
 rule "Innogy SOLL"
     when
-        Item innogy_thermostat_bz_soll_temp changed
+        Item OG_Badezimmer_Heizung changed
     then
-        sendTelegram("bot2", "Innogy BZ\nSOLL -> %s °C", innogy_thermostat_bz_soll_temp.state)
+        sendTelegram("bot2", "Innogy BZ\nSOLL -> %s °C", OG_Badezimmer_Heizung.state)
 end
 
 rule "Innogy SOLL"
     when
-        Item innogy_thermostat_wz1_soll_temp changed
+        Item OG_Wohnzimmer_Heizung changed
     then
-        sendTelegram("bot2", "Innogy WZ1\nSOLL -> %s °C", innogy_thermostat_wz1_soll_temp.state)
+        sendTelegram("bot2", "Innogy WZ1\nSOLL -> %s °C", OG_Wohnzimmer_Heizung.state)
 end
 
 rule "Innogy SOLL"
     when
-        Item innogy_thermostat_wz2_soll_temp changed
+        Item OG_Wohnzimmer_Heizung_2 changed
     then
-        sendTelegram("bot2", "Innogy WZ2\nSOLL -> %s °C", innogy_thermostat_wz2_soll_temp.state)
+        sendTelegram("bot2", "Innogy WZ2\nSOLL -> %s °C", OG_Wohnzimmer_Heizung_2.state)
 end
 

@@ -1,6 +1,6 @@
 
 
-rule "Livingroom Window Lights" // 1 - Nivea Men
+rule "Livingroom Window Lights" // Nivea Men
     when
         Channel "amazondashbutton:dashbutton:85d7b6e0:press" triggered
     then
@@ -12,7 +12,7 @@ rule "Livingroom Window Lights" // 1 - Nivea Men
         }
 end
 
-rule "Corridor Lights"          // 2 - Ariel
+rule "Corridor Lights"          // Ariel
     when
         Channel "amazondashbutton:dashbutton:4924ae04:press" triggered
     then
@@ -24,7 +24,18 @@ rule "Corridor Lights"          // 2 - Ariel
         }
 end
 
-rule "Kitchen Lights"           // 4 - Kleenex
+rule "Schhlafzimmer Licht"           // Heineken
+    when
+        Channel "amazondashbutton:dashbutton:f91b3e09:press" triggered
+    then
+        if(OG_Schlafzimmer.state == ON ) {
+            OG_Schlafzimmer.members.forEach[ i | i.sendCommand(OFF) ]
+        } else {
+            OG_Schlafzimmer.sendCommand(ON)
+        }
+end
+
+rule "Kitchen Lights"           // Kleenex
     when
         Channel "amazondashbutton:dashbutton:01e5c1b7:press" triggered
     then
@@ -38,7 +49,7 @@ end
 
 rule "Nachtlicht Eddy"           // Nerf
     when
-        Channel "amazondashbutton:dashbutton:4797cd89:press" triggered          // 10 - Nerf
+        Channel "amazondashbutton:dashbutton:4797cd89:press" triggered
     then
         if(OG_Schlafzimmer_Licht_E.state == ON ) {
             KAT_Licht.members.forEach[ i | i.sendCommand(OFF) ]
@@ -49,7 +60,7 @@ end
 
 rule "Nachtlicht Cath"           // Maya Mate
     when
-        Channel "amazondashbutton:dashbutton:ca615f26:press" triggered          // 5 - Maya Mate
+        Channel "amazondashbutton:dashbutton:ca615f26:press" triggered
     then
         if(OG_Schlafzimmer_Licht_C.state == ON ) {
             KAT_Licht.members.forEach[ i | i.sendCommand(OFF) ]
@@ -69,54 +80,63 @@ rule "Notfall-Button"
 end
 */
 
+
+
 // NOTIFICATIONS
 
-rule "1 - Nivea Men"            // 1 - Nivea Men
+rule "Notification - Nivea Men"
     when
         Channel "amazondashbutton:dashbutton:85d7b6e0:press" triggered
     then
-        sendTelegram("bot3", "DashButton 1 - Nivea Men")
+        sendTelegram("bot3", "DashButton - Nivea Men")
 end
 
-rule "2 - Ariel"                // 2 - Ariel
+rule "Notification - Ariel"
     when
         Channel "amazondashbutton:dashbutton:4924ae04:press" triggered
     then
-        sendTelegram("bot3", "DashButton 2 - Ariel")
+        sendTelegram("bot3", "DashButton - Ariel")
 end
 
-rule "3 - brabantia"            // 3 - brabantia
+rule "Notification - brabantia"
     when
         Channel "amazondashbutton:dashbutton:5dc017ff:press" triggered
     then
-        sendTelegram("bot3", "DashButton 3 - brabantia")
+        sendTelegram("bot3", "DashButton - brabantia")
 end
 
-rule "4 - Kleenex"              // 4 - Kleenex
+rule "Notification - Kleenex"
     when
         Channel "amazondashbutton:dashbutton:01e5c1b7:press" triggered
     then
-        sendTelegram("bot3", "DashButton 4 - Kleenex")
+        sendTelegram("bot3", "DashButton - Kleenex")
 end
 
-rule "5 - Maya Mate"            // 5 - Maya Mate
+rule "Notification - Maya Mate"
     when
         Channel "amazondashbutton:dashbutton:ca615f26:press" triggered
     then
-        sendTelegram("bot3", "DashButton 5 - Maya Mate")
+        sendTelegram("bot3", "DashButton - Maya Mate")
 end
 
-rule "6 - Jacobs"               // 6 - Jacobs
+rule "Notification - Jacobs"
     when
         Channel "amazondashbutton:dashbutton:2ec3b231:press" triggered
     then
-        sendTelegram("bot3", "DashButton 6 - Jacobs")
+        sendTelegram("bot3", "DashButton - Jacobs")
 end
 
-rule "10 - Nerf"               // 10 - Nerf
+rule "Notification - Nerf"
     when
         Channel "amazondashbutton:dashbutton:4797cd89:press" triggered
     then
-        sendTelegram("bot3", "DashButton 10 - Nerf")
+        sendTelegram("bot3", "DashButton - Nerf")
+end
+
+rule "Notification - Heineken"
+    when
+        Channel "amazondashbutton:dashbutton:f91b3e09:press" triggered
+    then
+        sendTelegram("bot3", "DashButton Heineken")
 end
 

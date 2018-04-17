@@ -24,6 +24,7 @@ then
             }
         }
         case (Anwesenheit_Eddy.state==ON && Anwesenheit_Cath.state==OFF) || (Anwesenheit_Eddy.state==OFF && Anwesenheit_Cath.state==ON): { 
+            sendTelegram("bot2", "Anwesenheit: >> EINER <<\nCath: %s \nEddy: %s", Anwesenheit_Cath.state, Anwesenheit_Eddy.state)
             if (OG_Flur_Licht.state==OFF) {
                 Anwesenheit_Welcome.sendCommand(ON)
             }        
