@@ -24,7 +24,7 @@ rule "Corridor Lights"          // Ariel
         }
 end
 
-rule "Schhlafzimmer Licht"           // Heineken
+rule "Schhlafzimmer Licht Alle"           // Heineken
     when
         Channel "amazondashbutton:dashbutton:f91b3e09:press" triggered
     then
@@ -32,6 +32,28 @@ rule "Schhlafzimmer Licht"           // Heineken
             OG_Schlafzimmer.members.forEach[ i | i.sendCommand(OFF) ]
         } else {
             OG_Schlafzimmer.sendCommand(ON)
+        }
+end
+
+rule "Schhlafzimmer Licht Eddy"           // Nerf
+    when
+        Channel "amazondashbutton:dashbutton:4797cd89:press" triggered
+    then
+        if(OG_Schlafzimmer_Licht_E.state == ON ) {
+            KAT_Licht.members.forEach[ i | i.sendCommand(OFF) ]
+        } else {
+            OG_Schlafzimmer_Licht_E.sendCommand(ON)
+        }
+end
+
+rule "Schhlafzimmer Licht Cath"           // Maya Mate
+    when
+        Channel "amazondashbutton:dashbutton:ca615f26:press" triggered
+    then
+        if(OG_Schlafzimmer_Licht_C.state == ON ) {
+            KAT_Licht.members.forEach[ i | i.sendCommand(OFF) ]
+        } else {
+            OG_Schlafzimmer_Licht_C.sendCommand(ON)
         }
 end
 
@@ -44,28 +66,6 @@ rule "Kitchen Lights"           // Kleenex
         }
         else if (OG_Kueche_Licht.state == OFF) {
             OG_Kueche_Licht.sendCommand(ON)
-        }
-end
-
-rule "Nachtlicht Eddy"           // Nerf
-    when
-        Channel "amazondashbutton:dashbutton:4797cd89:press" triggered
-    then
-        if(OG_Schlafzimmer_Licht_E.state == ON ) {
-            KAT_Licht.members.forEach[ i | i.sendCommand(OFF) ]
-        } else {
-            OG_Schlafzimmer_Licht_E.sendCommand(ON)
-        }
-end
-
-rule "Nachtlicht Cath"           // Maya Mate
-    when
-        Channel "amazondashbutton:dashbutton:ca615f26:press" triggered
-    then
-        if(OG_Schlafzimmer_Licht_C.state == ON ) {
-            KAT_Licht.members.forEach[ i | i.sendCommand(OFF) ]
-        } else {
-            OG_Schlafzimmer_Licht_C.sendCommand(ON)
         }
 end
 
