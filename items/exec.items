@@ -8,3 +8,9 @@ String Sony_TV_out {channel="exec:command:sony_tv:output"}
 Switch Sat_Receiver {channel="exec:command:sat_receiver:run"}
 String Sat_Receiver_Args {channel="exec:command:sat_receiver:input"}
 String Sat_Receiver_out {channel="exec:command:sat_receiver:output"}
+
+
+// Raspi REBOOT
+Switch Raspberry_Pi_REBOOT {channel="exec:command:Raspberry_Pi_REBOOT:run", expire="5s,command=OFF" }
+String Raspberry_Pi_REBOOT_Args {channel="exec:command:Raspberry_Pi_REBOOT:input"}
+String Raspberry_Pi_REBOOT_out {channel="exec:command:Raspberry_Pi_REBOOT:output"}

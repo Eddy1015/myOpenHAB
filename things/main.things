@@ -8,6 +8,9 @@
 // e.g: "ls" as <YOUR COMMAND> and "-a" or "-l" as additional argument set to the input channel in the rule.
 //Thing exec:command:yourcommand [ command="<YOUR COMMAND> %2$s", interval=0, autorun=false ]
 
+
+Thing exec:command:Raspberry_Pi_REBOOT [ command="sudo reboot %2$s", interval=0, autorun=false ]
+
 Thing exec:command:sony_tv 		[ command="irsend SEND_ONCE sony_tv %2$s", interval=0, autorun=false ]
 Thing exec:command:sat_receiver [ command="irsend SEND_ONCE sat_receiver %2$s", interval=0, autorun=false ]
 

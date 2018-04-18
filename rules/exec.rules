@@ -68,3 +68,15 @@ rule "Receiver Power"
         }
         Sat_Receiver.sendCommand(ON)
 end
+
+
+rule "Raspi REBOOT"
+    when
+        Item Raspberry_Pi_REBOOT changed
+    then
+        Raspberry_Pi_REBOOT_Args.sendCommand("--verbose")
+        while(Raspberry_Pi_REBOOT.state != OFF){
+            Thread::sleep(500)
+        }
+        Raspberry_Pi_REBOOT.sendCommand(ON)
+end
