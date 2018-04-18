@@ -13,7 +13,7 @@ sitemap debug label="Debug"
         Text    item=INNOGY_Temp
         Text    item=INNOGY_Humi
         Text    item=gRSSI
-        Text    item=KAT_Unreach_Grp
+        Text    item=KAT_Unreach_Grp    visibility=[KAT_Unreach_Grp>0]
     }
     Frame label="TV" {
         Switch  item=Sony_TV_Power          icon="025_cupboard_10"
