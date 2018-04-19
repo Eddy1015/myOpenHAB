@@ -1,0 +1,42 @@
+sitemap guests label="Gäste"
+{
+    Frame item=Anwesenheit_Alle label="Anwesenheit: [%d]" {
+        Switch  item=Anwesenheit_Eddy   icon="man_1"
+        Switch  item=Anwesenheit_Cath   icon="woman_1"
+    }
+    Frame item=Guests  label="Gäste anwesend: [%d]" {
+        Text    label="Keine Gäste anwesend!" icon="error" visibility=[Guests==0]
+
+        Text    item=Laptop_Eddy
+
+        Text    item=Gast_SP_Julia visibility=[Gast_SP_Julia==ON]
+        Text    item=Gast_SP_Sebi visibility=[Gast_SP_Sebi==ON]
+
+        Text    item=Gast_SP_Andrea visibility=[Gast_SP_Andrea==ON]
+        Text    item=Gast_SP_Reinhard visibility=[Gast_SP_Reinhard==ON]
+
+        Text    item=Gast_SP_Katarina visibility=[Gast_SP_Katarina==ON]
+
+        Text    item=Gast_SP_Daniel visibility=[Gast_SP_Daniel==ON]
+
+        Text    item=Gast_SP_Karo visibility=[Gast_SP_Karo==ON]
+
+        Text    item=Gast_SP_Ingo visibility=[Gast_SP_Ingo==ON]
+
+        Text    item=Gast_SP_Matthias visibility=[Gast_SP_Matthias==ON]
+    }
+    Frame label="Zuletzt gesehen:" {
+
+        //Text    item=Laptop_Eddy_lastseen
+        Text    item=Raspi_lastseen label="Raspi [%1$tA, %1$td.%1$tm.%1$tY - %1$tH:%1$tM]"
+        Text    item=Gast_SP_Julia_lastseen
+        Text    item=Gast_SP_Sebi_lastseen
+        Text    item=Gast_SP_Andrea_lastseen
+        Text    item=Gast_SP_Reinhard_lastseen
+        Text    item=Gast_SP_Katarina_lastseen
+        Text    item=Gast_SP_Daniel_lastseen
+        Text    item=Gast_SP_Karo_lastseen
+        Text    item=Gast_SP_Ingo_lastseen
+        Text    item=Gast_SP_Matthias_lastseen
+    }
+}

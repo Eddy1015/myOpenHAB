@@ -14,6 +14,9 @@ sitemap debug label="Debug"
         Text    item=INNOGY_Humi
         Text    item=gRSSI
         Text    item=KAT_Unreach_Grp    visibility=[KAT_Unreach_Grp>0]
+
+        Text    item=Raspi label="Raspi [%s]"
+        Text    item=Raspi_lastseen label="Raspi [%1$tA, %1$td.%1$tm.%1$tY - %1$tH:%1$tM]"
     }
     Frame label="TV" {
         Switch  item=Sony_TV_Power          icon="025_cupboard_10"
