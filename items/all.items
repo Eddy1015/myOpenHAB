@@ -11,6 +11,8 @@ Group:Number:AVG                gRSSI                   "Ø-Verbindung [%.1f %%]
 Group:Number:SUM                Anwesenheit_Alle        "Alle Bewohner [%d]"
 Switch                          Anwesenheit_Eddy        "Eddy [MAP(presence.map):%s]"    (Anwesenheit_Alle)
 Switch                          Anwesenheit_Cath        "Cath [MAP(presence.map):%s]"    (Anwesenheit_Alle)
+Switch                          Anwesenheit_Arbeit_Eddy "Eddy Arbeit [%s]"
+Switch                          Anwesenheit_Arbeit_Cath "Cath Arbeit [%s]"
 Switch                          Anwesenheit_Timer       { expire="5s,command=OFF" }
 Switch                          Anwesenheit_Welcome     { expire="5m,command=OFF" }
 

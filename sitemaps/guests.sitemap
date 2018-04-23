@@ -27,8 +27,8 @@ sitemap guests label="Gäste"
     }
     Frame label="Zuletzt gesehen:" {
 
-        //Text    item=Laptop_Eddy_lastseen
-        Text    item=Raspi_lastseen label="Raspi [%1$tA, %1$td.%1$tm.%1$tY - %1$tH:%1$tM]"
+        Text    item=Laptop_Eddy_lastseen
+        Text    item=Raspi_lastseen
         Text    item=Gast_SP_Julia_lastseen
         Text    item=Gast_SP_Sebi_lastseen
         Text    item=Gast_SP_Andrea_lastseen

@@ -1,5 +1,5 @@
 
-//yahooweather:weather:speyer [ location=12835447 ]
+yahooweather:weather:speyer [ location=695771 ]
 
 //network:pingdevice:192_168_178_101    [ hostname="192.167.178.101" ]
 //network:pingdevice:192_168_178_102    [ hostname="192.167.178.102" ]

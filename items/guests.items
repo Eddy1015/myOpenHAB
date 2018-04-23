@@ -1,8 +1,8 @@
 Group:Number:SUM Guests "Gäste"
 
-Switch      Raspi                       "Raspi Status"                                              { channel='network:servicedevice:Raspberry_Pi:online' }
+Switch      Raspi                       "Raspi Status [%s]"                                         { channel='network:servicedevice:Raspberry_Pi:online' }
 Number      Raspi_ping                  "Raspi Ping"                                                { channel='network:servicedevice:Raspberry_Pi:latency' }
-DateTime    Raspi_lastseen              "Raspi Last"                                                { channel='network:servicedevice:Raspberry_Pi:lastseen' }
+DateTime    Raspi_lastseen              "Raspi Last [%1$tA, %1$td.%1$tm.%1$tY - %1$tH:%1$tM]"       { channel='network:servicedevice:Raspberry_Pi:lastseen' }
 
 
 Switch      Laptop_Eddy                 "Laptop_Eddy [%s]" (Guests)                                 { channel='network:servicedevice:Laptop_Eddy:online' }
