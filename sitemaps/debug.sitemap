@@ -3,6 +3,8 @@ sitemap debug label="Debug"
     Frame item=Anwesenheit_Alle label="Anwesenheit: [%d]" {
         Switch  item=Anwesenheit_Eddy   icon="man_1"
         Switch  item=Anwesenheit_Cath   icon="woman_1"
+        Switch  item=Anwesenheit_Arbeit_Eddy   icon="man_1"
+        Switch  item=Anwesenheit_Arbeit_Cath   icon="woman_1"
     }
     Frame item=KAT_Licht_Anzahl label="Experimente [%d Lampen an]" {
         Switch  item=KAT_Sonoff_Licht_Grp

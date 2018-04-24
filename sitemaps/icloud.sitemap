@@ -1,10 +1,10 @@
 sitemap debug label="icloud"
 {
-    Frame item=Anwesenheit_Alle label="Anwesenheit: [%d]" {
+    Frame item=Anwesenheit_Alle label="Personen anwesend: [%d]" {
         Switch  item=Anwesenheit_Eddy   icon="man_1"
         Switch  item=Anwesenheit_Cath   icon="woman_1"
     }
-    Frame item=iPhone_E_BatteryLevel  label="Anwesenheit: [%.0f]" {
+    Frame item=iPhone_E_BatteryLevel  label="iPhone Eddy: [%.0f %%]" {
         Text    item=iPhone_E_BatteryStatus
         Text    item=iPhone_E_BatteryLevel
         Switch  item=iPhone_E_FindMyPhone
@@ -12,7 +12,7 @@ sitemap debug label="icloud"
         Text    item=iPhone_E_LocationAccuracy
         Text    item=iPhone_E_LocationLastUpdate
     }
-    Frame item=iPhone_C_BatteryLevel  label="Anwesenheit: [%.0f]" {
+    Frame item=iPhone_C_BatteryLevel  label="iPhone Cath: [%.0f %%]" {
         Text    item=iPhone_C_BatteryStatus
         Text    item=iPhone_C_BatteryLevel
         Switch  item=iPhone_C_FindMyPhone
