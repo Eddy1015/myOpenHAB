@@ -19,6 +19,8 @@ sitemap debug label="Debug"
 
         Text    item=Raspi label="Raspi [%s]"
         Text    item=Raspi_lastseen label="Raspi [%1$tA, %1$td.%1$tm.%1$tY - %1$tH:%1$tM]"
+
+        Switch  item=telegram_msg
     }
     Frame label="TV" {
         Switch  item=Sony_TV_Power          icon="025_cupboard_10"
@@ -44,10 +46,15 @@ sitemap debug label="Debug"
         Text    item=OG_Badezimmer_Heizung_Ist_Humi     icon="humidity"     valuecolor=[>90="red",>75="orange",>60="gray",<=60="black"]
     }
     Frame item=gRSSI {
-        //Text    item=OG_Kueche_Licht_RSSI           label="Sonoff_1 WIFI Küche" icon="network"  valuecolor=[>=90="#000000",>=80="#990000",>75="#cc0000",>60="#e50000",<=60="#ff0000"]
-        Text    item=OG_Flur_Licht_RSSI             label="Sonoff_2 WIFI Flur"  icon="network"  valuecolor=[>=90="#000000",>=80="#990000",>75="#cc0000",>60="#e50000",<=60="#ff0000"]
-        Text    item=OG_Wohnzimmer_Licht_L_RSSI     label="Sonoff_3 WIFI WZ1 L" icon="network"  valuecolor=[>=90="#000000",>=80="#990000",>75="#cc0000",>60="#e50000",<=60="#ff0000"]
-        Text    item=OG_Wohnzimmer_Licht_R_RSSI     label="Sonoff_4 WIFI WZ2 R" icon="network"  valuecolor=[>=90="#000000",>=80="#990000",>75="#cc0000",>60="#e50000",<=60="#ff0000"]
+        //Text    item=OG_Kueche_Licht_RSSI               label="Sonoff_1 WIFI Küche" icon="network"  valuecolor=[>=90="#000000",>=80="#990000",>75="#cc0000",>60="#e50000",<=60="#ff0000"]
+        Text    item=OG_Flur_Licht_RSSI                 label="OG_Flur_Licht_RSSI"  icon="network"  valuecolor=[>=90="#000000",>=80="#990000",>75="#cc0000",>60="#e50000",<=60="#ff0000"]
+        Text    item=OG_Wohnzimmer_Licht_L_RSSI         label="OG_Wohnzimmer_Licht_L_RSSI" icon="network"  valuecolor=[>=90="#000000",>=80="#990000",>75="#cc0000",>60="#e50000",<=60="#ff0000"]
+        Text    item=OG_Wohnzimmer_Licht_R_RSSI         label="OG_Wohnzimmer_Licht_R_RSSI" icon="network"  valuecolor=[>=90="#000000",>=80="#990000",>75="#cc0000",>60="#e50000",<=60="#ff0000"]
+        Text    item=OG_Kueche_Kaffee_RSSI              label="OG_Kueche_Kaffee_RSSI" icon="network"  valuecolor=[>=90="#000000",>=80="#990000",>75="#cc0000",>60="#e50000",<=60="#ff0000"]
+        Text    item=OG_Wohnzimmer_Licht_Couch_RSSI     label="OG_Wohnzimmer_Licht_Couch_RSSI" icon="network"  valuecolor=[>=90="#000000",>=80="#990000",>75="#cc0000",>60="#e50000",<=60="#ff0000"]
+        Text    item=OG_Wohnzimmer_Licht_Telefon_RSSI   label="OG_Wohnzimmer_Licht_Telefon_RSSI" icon="network"  valuecolor=[>=90="#000000",>=80="#990000",>75="#cc0000",>60="#e50000",<=60="#ff0000"]
+        Text    item=OG_Schlafzimmer_Licht_E_RSSI       label="OG_Schlafzimmer_Licht_E_RSSI" icon="network"  valuecolor=[>=90="#000000",>=80="#990000",>75="#cc0000",>60="#e50000",<=60="#ff0000"]
+        Text    item=OG_Schlafzimmer_Licht_C_RSSI       label="OG_Schlafzimmer_Licht_C_RSSI" icon="network"  valuecolor=[>=90="#000000",>=80="#990000",>75="#cc0000",>60="#e50000",<=60="#ff0000"]
 
         // Sonoff_RSSI_chart
         Switch  item=Sonoff_RSSI_chart label="Sonoff_GROUP" icon="line" mappings=[0="Hide", 1="Hour", 2="Day", 3="Week"]

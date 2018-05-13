@@ -27,6 +27,8 @@ Switch                          Timer_1                 "Timer 1"       <time>  
 Switch                          Timer_2                 "Timer 2"       <time>  (SYS_Timer)
 Switch                          Timer_Bett              "Feierabend"    <time>  (SYS_Timer) [ "Switchable" ]    { expire="2m,command=OFF" }
 
+Switch                          telegram_msg
+
 Switch  Sony_TV_Power       "Fernseher"                 <screen>        [ "Switchable" ]
 Switch  Sony_TV_Volume      "Fernseher Lautstärke"      <soundvolume>   [ "Switchable" ]
 Switch  Sony_TV_Mute        "Fernseher Lautlos"         <soundvolume>   [ "Switchable" ]

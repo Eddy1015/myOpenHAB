@@ -36,6 +36,8 @@ sitemap main label="Hauptmenü"
         Switch  item=Temperature_chart  label="Wetter Chart"   icon="line" mappings=[0="Hide", 1="°C", 2="%", 3="hPa"]
             Chart   item=Temperature    period=D refresh=30000  service="rrd4j" visibility=[Temperature_chart==1]
             Chart   item=Temperature    period=W refresh=30000  service="rrd4j" visibility=[Temperature_chart==1]
+            Chart   item=gTempInAndOut    period=D refresh=30000  service="rrd4j" visibility=[Temperature_chart==1]
+            Chart   item=gTempInAndOut    period=W refresh=30000  service="rrd4j" visibility=[Temperature_chart==1]
             Chart   item=Humidity       period=D refresh=30000  service="rrd4j" visibility=[Temperature_chart==2]
             Chart   item=Humidity       period=W refresh=30000  service="rrd4j" visibility=[Temperature_chart==2]
             Chart   item=Pressure       period=D refresh=30000  service="rrd4j" visibility=[Temperature_chart==3]

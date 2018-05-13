@@ -11,6 +11,7 @@ Group OG_Schlafzimmer		"Schlafzimmer"		<bed>		(gOG)
 Group gSYS                  "System"            <settings>          // Gruppe System
 
 Group gWEATHER              "Wetter"            <sun_clouds>
+Group gTempInAndOut
 
 Group gKAT                  "Kategorien"        <keyring>
 Group:Switch:SUM   	 		KAT_Licht_Anzahl    "Alle Lichter [%d]"             <light>     (gKAT)

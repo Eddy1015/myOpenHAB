@@ -6,10 +6,14 @@ Strategies {
     default = everyUpdate, restoreOnStartup
 }
 Items {
-    OG_Kueche_Licht_Boden_RSSI      : strategy = everyChange, everyMinute, restoreOnStartup
-    OG_Flur_Licht_RSSI              : strategy = everyChange, everyMinute, restoreOnStartup
-    OG_Wohnzimmer_Licht_L_RSSI      : strategy = everyChange, everyMinute, restoreOnStartup
-    OG_Wohnzimmer_Licht_R_RSSI      : strategy = everyChange, everyMinute, restoreOnStartup
+    OG_Kueche_Licht_Boden_RSSI          : strategy = everyChange, everyMinute, restoreOnStartup
+    OG_Flur_Licht_RSSI                  : strategy = everyChange, everyMinute, restoreOnStartup
+    OG_Wohnzimmer_Licht_L_RSSI          : strategy = everyChange, everyMinute, restoreOnStartup
+    OG_Wohnzimmer_Licht_R_RSSI          : strategy = everyChange, everyMinute, restoreOnStartup
+    OG_Wohnzimmer_Licht_Schrank_RSSI    : strategy = everyChange, everyMinute, restoreOnStartup
+    OG_Wohnzimmer_Licht_Telefon_RSSI    : strategy = everyChange, everyMinute, restoreOnStartup
+    OG_Schlafzimmer_Licht_E_RSSI        : strategy = everyChange, everyMinute, restoreOnStartup
+    OG_Schlafzimmer_Licht_C_RSSI        : strategy = everyChange, everyMinute, restoreOnStartup
 
     INNOGY_Temp : strategy = everyChange, everyMinute, restoreOnStartup
     INNOGY_Humi : strategy = everyChange, everyMinute, restoreOnStartup
@@ -30,9 +34,13 @@ Items {
     Humidity : strategy = everyChange, everyMinute, restoreOnStartup
     Pressure : strategy = everyChange, everyMinute, restoreOnStartup
     gWAETHER : strategy = everyChange, everyMinute, restoreOnStartup
+    gTempInAndOut : strategy = everyChange, everyMinute, restoreOnStartup
     gRSSI : strategy = everyChange, everyMinute, restoreOnStartup
-    Anwesenheit_Alle : strategy = everyChange, everyMinute, restoreOnStartup
-    Anwesenheit_Eddy : strategy = everyChange, everyMinute, restoreOnStartup
-    Anwesenheit_Cath : strategy = everyChange, everyMinute, restoreOnStartup
+    Anwesenheit_Alle : strategy = everyChange, everyMinute
+    Anwesenheit_Eddy : strategy = everyChange, everyMinute
+    Anwesenheit_Cath : strategy = everyChange, everyMinute
     * : strategy = everyChange, restoreOnStartup
 }
+
+
+// vim: syntax=Xtend

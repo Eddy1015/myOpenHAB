@@ -1,37 +1,37 @@
 Group:Number:SUM Guests "Gäste"
 
-Switch      Raspi                       "Raspi Status [%s]"                                         { channel='network:servicedevice:Raspberry_Pi:online' }
-Number      Raspi_ping                  "Raspi Ping"                                                { channel='network:servicedevice:Raspberry_Pi:latency' }
-DateTime    Raspi_lastseen              "Raspi Last [%1$tA, %1$td.%1$tm.%1$tY - %1$tH:%1$tM]"       { channel='network:servicedevice:Raspberry_Pi:lastseen' }
+Switch      Raspi                       "Raspi Status [%s]"                                         { channel='network:pingdevice:Raspberry_Pi:online' }
+Number      Raspi_ping                  "Raspi Ping"                                                { channel='network:pingdevice:Raspberry_Pi:latency' }
+DateTime    Raspi_lastseen              "Raspi Last [%1$tA, %1$td.%1$tm.%1$tY - %1$tH:%1$tM]"       { channel='network:pingdevice:Raspberry_Pi:lastseen' }
 
 
-Switch      Laptop_Eddy                 "Laptop_Eddy [%s]" (Guests)                                 { channel='network:servicedevice:Laptop_Eddy:online' }
-DateTime    Laptop_Eddy_lastseen        "Laptop_Eddy [%1$tA, %1$td.%1$tm.%1$tY - %1$tH:%1$tM]"      { channel='network:servicedevice:Laptop_Eddy:lastseen' }
-Switch      Laptop_Cath                 "Laptop_Cath [%s]" (Guests)                                 { channel='network:servicedevice:Laptop_Cath:online' }
-DateTime    Laptop_Cath_lastseen        "Laptop_Cath [%1$tA, %1$td.%1$tm.%1$tY - %1$tH:%1$tM]"      { channel='network:servicedevice:Laptop_Cath:lastseen' }
+Switch      Laptop_Eddy                 "Laptop_Eddy [%s]" (Guests)                                 { channel='network:pingdevice:Laptop_Eddy:online' }
+DateTime    Laptop_Eddy_lastseen        "Laptop_Eddy [%1$tA, %1$td.%1$tm.%1$tY - %1$tH:%1$tM]"      { channel='network:pingdevice:Laptop_Eddy:lastseen' }
+Switch      Laptop_Cath                 "Laptop_Cath [%s]" (Guests)                                 { channel='network:pingdevice:Laptop_Cath:online' }
+DateTime    Laptop_Cath_lastseen        "Laptop_Cath [%1$tA, %1$td.%1$tm.%1$tY - %1$tH:%1$tM]"      { channel='network:pingdevice:Laptop_Cath:lastseen' }
 
 
-Switch      Gast_SP_Julia               "Gast_SP_Julia [%s]" (Guests)                               { channel='network:servicedevice:Gast_SP_Julia:online' }
-DateTime    Gast_SP_Julia_lastseen      "Gast_SP_Julia [%1$tA, %1$td.%1$tm.%1$tY - %1$tH:%1$tM]"    { channel='network:servicedevice:Gast_SP_Julia:lastseen' }
-Switch      Gast_SP_Sebi                "Gast_SP_Sebi [%s]" (Guests)                                { channel='network:servicedevice:Gast_SP_Sebi:online' }
-DateTime    Gast_SP_Sebi_lastseen       "Gast_SP_Sebi [%1$tA, %1$td.%1$tm.%1$tY - %1$tH:%1$tM]"     { channel='network:servicedevice:Gast_SP_Sebi:lastseen' }
+Switch      Gast_SP_Julia               "Gast_SP_Julia [%s]" (Guests)                               { channel='network:pingdevice:Gast_SP_Julia:online' }
+DateTime    Gast_SP_Julia_lastseen      "Gast_SP_Julia [%1$tA, %1$td.%1$tm.%1$tY - %1$tH:%1$tM]"    { channel='network:pingdevice:Gast_SP_Julia:lastseen' }
+Switch      Gast_SP_Sebi                "Gast_SP_Sebi [%s]" (Guests)                                { channel='network:pingdevice:Gast_SP_Sebi:online' }
+DateTime    Gast_SP_Sebi_lastseen       "Gast_SP_Sebi [%1$tA, %1$td.%1$tm.%1$tY - %1$tH:%1$tM]"     { channel='network:pingdevice:Gast_SP_Sebi:lastseen' }
 
-Switch      Gast_SP_Andrea              "Gast_SP_Andrea [%s]" (Guests)                              { channel='network:servicedevice:Gast_SP_Andrea:online' }
-DateTime    Gast_SP_Andrea_lastseen     "Gast_SP_Andrea [%1$tA, %1$td.%1$tm.%1$tY - %1$tH:%1$tM]"   { channel='network:servicedevice:Gast_SP_Andrea:lastseen' }
-Switch      Gast_SP_Reinhard            "Gast_SP_Reinhard [%s]" (Guests)                            { channel='network:servicedevice:Gast_SP_Reinhard:online' }
-DateTime    Gast_SP_Reinhard_lastseen   "Gast_SP_Reinhard [%1$tA, %1$td.%1$tm.%1$tY - %1$tH:%1$tM]" { channel='network:servicedevice:Gast_SP_Reinhard:lastseen' }
+Switch      Gast_SP_Andrea              "Gast_SP_Andrea [%s]" (Guests)                              { channel='network:pingdevice:Gast_SP_Andrea:online' }
+DateTime    Gast_SP_Andrea_lastseen     "Gast_SP_Andrea [%1$tA, %1$td.%1$tm.%1$tY - %1$tH:%1$tM]"   { channel='network:pingdevice:Gast_SP_Andrea:lastseen' }
+Switch      Gast_SP_Reinhard            "Gast_SP_Reinhard [%s]" (Guests)                            { channel='network:pingdevice:Gast_SP_Reinhard:online' }
+DateTime    Gast_SP_Reinhard_lastseen   "Gast_SP_Reinhard [%1$tA, %1$td.%1$tm.%1$tY - %1$tH:%1$tM]" { channel='network:pingdevice:Gast_SP_Reinhard:lastseen' }
 
-Switch      Gast_SP_Katarina            "Gast_SP_Katarina [%s]" (Guests)                            { channel='network:servicedevice:Gast_SP_Katarina:online' }
-DateTime    Gast_SP_Katarina_lastseen   "Gast_SP_Katarina [%1$tA, %1$td.%1$tm.%1$tY - %1$tH:%1$tM]" { channel='network:servicedevice:Gast_SP_Katarina:lastseen' }
+Switch      Gast_SP_Katarina            "Gast_SP_Katarina [%s]" (Guests)                            { channel='network:pingdevice:Gast_SP_Katarina:online' }
+DateTime    Gast_SP_Katarina_lastseen   "Gast_SP_Katarina [%1$tA, %1$td.%1$tm.%1$tY - %1$tH:%1$tM]" { channel='network:pingdevice:Gast_SP_Katarina:lastseen' }
 
-Switch      Gast_SP_Daniel              "Gast_SP_Daniel [%s]" (Guests)                              { channel='network:servicedevice:Gast_SP_Daniel:online' }
-DateTime    Gast_SP_Daniel_lastseen     "Gast_SP_Daniel [%1$tA, %1$td.%1$tm.%1$tY - %1$tH:%1$tM]"   { channel='network:servicedevice:Gast_SP_Daniel:lastseen' }
+Switch      Gast_SP_Daniel              "Gast_SP_Daniel [%s]" (Guests)                              { channel='network:pingdevice:Gast_SP_Daniel:online' }
+DateTime    Gast_SP_Daniel_lastseen     "Gast_SP_Daniel [%1$tA, %1$td.%1$tm.%1$tY - %1$tH:%1$tM]"   { channel='network:pingdevice:Gast_SP_Daniel:lastseen' }
 
-Switch      Gast_SP_Karo                "Gast_SP_Karo [%s]" (Guests)                                { channel='network:servicedevice:Gast_SP_Karo:online' }
-DateTime    Gast_SP_Karo_lastseen       "Gast_SP_Karo [%1$tA, %1$td.%1$tm.%1$tY - %1$tH:%1$tM]"     { channel='network:servicedevice:Gast_SP_Karo:lastseen' }
+Switch      Gast_SP_Karo                "Gast_SP_Karo [%s]" (Guests)                                { channel='network:pingdevice:Gast_SP_Karo:online' }
+DateTime    Gast_SP_Karo_lastseen       "Gast_SP_Karo [%1$tA, %1$td.%1$tm.%1$tY - %1$tH:%1$tM]"     { channel='network:pingdevice:Gast_SP_Karo:lastseen' }
 
-Switch      Gast_SP_Ingo                "Gast_SP_Ingo [%s]" (Guests)                                { channel='network:servicedevice:Gast_SP_Ingo:online' }
-DateTime    Gast_SP_Ingo_lastseen       "Gast_SP_Ingo [%1$tA, %1$td.%1$tm.%1$tY - %1$tH:%1$tM]"     { channel='network:servicedevice:Gast_SP_Ingo:lastseen' }
+Switch      Gast_SP_Ingo                "Gast_SP_Ingo [%s]" (Guests)                                { channel='network:pingdevice:Gast_SP_Ingo:online' }
+DateTime    Gast_SP_Ingo_lastseen       "Gast_SP_Ingo [%1$tA, %1$td.%1$tm.%1$tY - %1$tH:%1$tM]"     { channel='network:pingdevice:Gast_SP_Ingo:lastseen' }
 
-Switch      Gast_SP_Matthias            "Gast_SP_Matthias [%s]" (Guests)                            { channel='network:servicedevice:Gast_SP_Matthias:online' }
-DateTime    Gast_SP_Matthias_lastseen   "Gast_SP_Matthias [%1$tA, %1$td.%1$tm.%1$tY - %1$tH:%1$tM]" { channel='network:servicedevice:Gast_SP_Matthias:lastseen' }
+Switch      Gast_SP_Matthias            "Gast_SP_Matthias [%s]" (Guests)                            { channel='network:pingdevice:Gast_SP_Matthias:online' }
+DateTime    Gast_SP_Matthias_lastseen   "Gast_SP_Matthias [%1$tA, %1$td.%1$tm.%1$tY - %1$tH:%1$tM]" { channel='network:pingdevice:Gast_SP_Matthias:lastseen' }
