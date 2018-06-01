@@ -3,7 +3,7 @@
 Number INNOGY_Temp_Chart
 Number INNOGY_Humi_Chart
 
-Group:Number:AVG         INNOGY_Temp    "Heizung Ø-Temp [%.1f °C]"      <temperature>
+Group:Number:AVG         INNOGY_Temp    "Heizung Ø-Temp [%.1f °C]"      <temperature>   (gTempInAndOut)
 Group:Number:AVG         INNOGY_Humi    "Heizung Ø-Humi [%.1f %%]"      <humidity>
 Group:Number:SUM         INNOGY_Bat     "Heizung Batterien leer [%d]"   <siren>
 
