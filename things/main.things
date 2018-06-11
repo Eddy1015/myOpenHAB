@@ -21,8 +21,6 @@ Thing network:pingdevice:SP_iPhone_Eddy [ hostname="192.168.178.40" ]
 Thing network:pingdevice:SP_iPhone_Cath [ hostname="192.168.178.42" ]
 
 // Guests
-
-
 Thing network:pingdevice:Gast_SP_Andrea [ hostname="192.168.178.175" ]
 Thing network:pingdevice:Gast_SP_BingHong [ hostname="192.168.178.182" ]
 Thing network:pingdevice:Gast_SP_Daniel [ hostname="192.168.178.172" ]
@@ -31,6 +29,7 @@ Thing network:pingdevice:Gast_SP_Ingo [ hostname="192.168.178.171" ]
 Thing network:pingdevice:Gast_SP_Julia [ hostname="192.168.178.179" ]
 Thing network:pingdevice:Gast_SP_Karo [ hostname="192.168.178.187" ]
 Thing network:pingdevice:Gast_SP_Katarina [ hostname="192.168.178.186" ]
+Thing network:pingdevice:Gast_SP_Nils [ hostname="192.168.178.188" ]
 Thing network:pingdevice:Gast_SP_Matthias [ hostname="192.168.178.173" ]
 Thing network:pingdevice:Gast_SP_Reinhard [ hostname="192.168.178.178" ]
 Thing network:pingdevice:Gast_SP_Sebi [ hostname="192.168.178.180" ]

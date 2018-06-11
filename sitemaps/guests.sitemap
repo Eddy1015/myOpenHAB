@@ -4,10 +4,16 @@ sitemap guests label="Gäste"
         Switch  item=Anwesenheit_Eddy   icon="man_1"
         Switch  item=Anwesenheit_Cath   icon="woman_1"
     }
+    Frame item=Raspi label="Raspi: [%s]" {
+        Text    item=Raspi_lastseen     icon="switch"
+    }
     Frame item=Guests  label="Gäste anwesend: [%d]" {
         Text    label="Keine Gäste anwesend!" icon="error" visibility=[Guests==0]
 
+        //Text    item=SP_iPhone_Eddy
+        //Text    item=SP_iPhone_Cath
         Text    item=Laptop_Eddy
+        Text    item=Laptop_Cath
 
         Text    item=Gast_SP_Julia visibility=[Gast_SP_Julia==ON]
         Text    item=Gast_SP_Sebi visibility=[Gast_SP_Sebi==ON]
@@ -16,6 +22,7 @@ sitemap guests label="Gäste"
         Text    item=Gast_SP_Reinhard visibility=[Gast_SP_Reinhard==ON]
 
         Text    item=Gast_SP_Katarina visibility=[Gast_SP_Katarina==ON]
+        Text    item=Gast_SP_Nils visibility=[Gast_SP_Nils==ON]
 
         Text    item=Gast_SP_Daniel visibility=[Gast_SP_Daniel==ON]
 
@@ -27,13 +34,16 @@ sitemap guests label="Gäste"
     }
     Frame label="Zuletzt gesehen:" {
 
+        //Text    item=SP_iPhone_Eddy_lastseen
+        //Text    item=SP_iPhone_Cath_lastseen
         Text    item=Laptop_Eddy_lastseen
-        Text    item=Raspi_lastseen
+        Text    item=Laptop_Cath_lastseen
         Text    item=Gast_SP_Julia_lastseen
         Text    item=Gast_SP_Sebi_lastseen
         Text    item=Gast_SP_Andrea_lastseen
         Text    item=Gast_SP_Reinhard_lastseen
         Text    item=Gast_SP_Katarina_lastseen
+        Text    item=Gast_SP_Nils_lastseen
         Text    item=Gast_SP_Daniel_lastseen
         Text    item=Gast_SP_Karo_lastseen
         Text    item=Gast_SP_Ingo_lastseen

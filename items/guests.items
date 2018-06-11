@@ -10,6 +10,11 @@ DateTime    Laptop_Eddy_lastseen        "Laptop_Eddy [%1$tA, %1$td.%1$tm.%1$tY -
 Switch      Laptop_Cath                 "Laptop_Cath [%s]" (Guests)                                 { channel='network:pingdevice:Laptop_Cath:online' }
 DateTime    Laptop_Cath_lastseen        "Laptop_Cath [%1$tA, %1$td.%1$tm.%1$tY - %1$tH:%1$tM]"      { channel='network:pingdevice:Laptop_Cath:lastseen' }
 
+Switch      SP_iPhone_Eddy                 "iPhone_Eddy [%s]" (Guests)                                 { channel='network:pingdevice:SP_iPhone_Eddy:online' }
+DateTime    SP_iPhone_Eddy_lastseen        "iPhone_Eddy [%1$tA, %1$td.%1$tm.%1$tY - %1$tH:%1$tM]"      { channel='network:pingdevice:SP_iPhone_Eddy:lastseen' }
+Switch      SP_iPhone_Cath                 "iPhone_Cath [%s]" (Guests)                                 { channel='network:pingdevice:SP_iPhone_Cath:online' }
+DateTime    SP_iPhone_Cath_lastseen        "iPhone_Cath [%1$tA, %1$td.%1$tm.%1$tY - %1$tH:%1$tM]"      { channel='network:pingdevice:SP_iPhone_Cath:lastseen' }
+
 
 Switch      Gast_SP_Julia               "Gast_SP_Julia [%s]" (Guests)                               { channel='network:pingdevice:Gast_SP_Julia:online' }
 DateTime    Gast_SP_Julia_lastseen      "Gast_SP_Julia [%1$tA, %1$td.%1$tm.%1$tY - %1$tH:%1$tM]"    { channel='network:pingdevice:Gast_SP_Julia:lastseen' }
@@ -23,6 +28,8 @@ DateTime    Gast_SP_Reinhard_lastseen   "Gast_SP_Reinhard [%1$tA, %1$td.%1$tm.%1
 
 Switch      Gast_SP_Katarina            "Gast_SP_Katarina [%s]" (Guests)                            { channel='network:pingdevice:Gast_SP_Katarina:online' }
 DateTime    Gast_SP_Katarina_lastseen   "Gast_SP_Katarina [%1$tA, %1$td.%1$tm.%1$tY - %1$tH:%1$tM]" { channel='network:pingdevice:Gast_SP_Katarina:lastseen' }
+Switch      Gast_SP_Nils            	"Gast_SP_Nils [%s]" (Guests)                            	{ channel='network:pingdevice:Gast_SP_Nils:online' }
+DateTime    Gast_SP_Nils_lastseen   	"Gast_SP_Nils [%1$tA, %1$td.%1$tm.%1$tY - %1$tH:%1$tM]" 	{ channel='network:pingdevice:Gast_SP_Nils:lastseen' }
 
 Switch      Gast_SP_Daniel              "Gast_SP_Daniel [%s]" (Guests)                              { channel='network:pingdevice:Gast_SP_Daniel:online' }
 DateTime    Gast_SP_Daniel_lastseen     "Gast_SP_Daniel [%1$tA, %1$td.%1$tm.%1$tY - %1$tH:%1$tM]"   { channel='network:pingdevice:Gast_SP_Daniel:lastseen' }
