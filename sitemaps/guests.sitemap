@@ -31,6 +31,8 @@ sitemap guests label="Gäste"
         Text    item=Gast_SP_Ingo visibility=[Gast_SP_Ingo==ON]
 
         Text    item=Gast_SP_Matthias visibility=[Gast_SP_Matthias==ON]
+
+        Text    item=Gast_SP_Gerrit visibility=[Gast_SP_Gerrit==ON]
     }
     Frame label="Zuletzt gesehen:" {
 
@@ -48,5 +50,6 @@ sitemap guests label="Gäste"
         Text    item=Gast_SP_Karo_lastseen
         Text    item=Gast_SP_Ingo_lastseen
         Text    item=Gast_SP_Matthias_lastseen
+        Text    item=Gast_SP_Gerrit_lastseen
     }
 }

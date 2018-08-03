@@ -11,8 +11,8 @@ yahooweather:weather:speyer [ location=695771 ]
 
 Thing exec:command:Raspberry_Pi_REBOOT [ command="sudo reboot %2$s", interval=0, autorun=false ]
 
-Thing exec:command:sony_tv 		[ command="irsend SEND_ONCE sony_tv %2$s", interval=0, autorun=false ]
-Thing exec:command:sat_receiver [ command="irsend SEND_ONCE sat_receiver %2$s", interval=0, autorun=false ]
+Thing exec:command:sony_tv 		[ command="irsend SEND_ONCE /home/openhabian/lirc-sony-kdl-40-RAW.conf %2$s", interval=0, autorun=false ]
+Thing exec:command:sat_receiver [ command="irsend SEND_ONCE /home/openhabian/lirc-1and1-sat-receiver.conf %2$s", interval=0, autorun=false ]
 
 Thing network:pingdevice:Raspberry_Pi [ hostname="192.168.178.100" ]
 Thing network:pingdevice:Laptop_Eddy [ hostname="192.168.178.30" ]
@@ -34,3 +34,4 @@ Thing network:pingdevice:Gast_SP_Matthias [ hostname="192.168.178.173" ]
 Thing network:pingdevice:Gast_SP_Reinhard [ hostname="192.168.178.178" ]
 Thing network:pingdevice:Gast_SP_Sebi [ hostname="192.168.178.180" ]
 Thing network:pingdevice:Gast_SP_Ulrich [ hostname="192.168.178.181" ]
+Thing network:pingdevice:Gast_SP_Gerrit [ hostname="192.168.178.190" ]

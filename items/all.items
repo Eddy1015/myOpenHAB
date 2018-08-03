@@ -39,6 +39,11 @@ Switch  Raspi               "Raspi Status"          { channel='network:servicede
 Number  Raspi_ping          "Raspi Ping"            { channel='network:servicedevice:Raspberry_Pi:latency'}
 DateTime  Raspi_lastseen    "Raspi Last"            { channel='network:servicedevice:Raspberry_Pi:lastseen'}
 
+
+String  Sonoff_Action       "Sonoff Action"             <sonoff_basic>  (Sonoff_Maintenance)
+String  Sonoff_Current_FW_Available "Current Release [%s]" <sonoff_basic> (Sonoff_Maintenance) { http="<[tasmotaRelease:10000:JSONPATH($[0].name)]"}
+String  Sonoff_Version      "Current Version [%s]"      <sonoff_basic>  (Sonoff_Maintenance)   { mqtt="<[sonoff_broker:sonoff-version:state:default]" }
+
 /*
 // Sonoff_Licht_1
 Switch  OG_Kueche_Licht_Boden       "Küche Licht"                   <light>     (OG_Kueche, KAT_Licht, KAT_Sonoff_Licht_Grp)       [ "Lighting" ] 
@@ -129,6 +134,9 @@ Number  OG_Wohnzimmer_Licht_Telefon_RSSI "WZ Licht Telefon: RSSI [%d %%]"       
     { mqtt="<[broker:tele/sonoff_s20_4/STATE:state:JSONPATH($.Wifi.RSSI)]" }
 Switch  OG_Wohnzimmer_Licht_Telefon_Unreach "WZ Licht Telefon unreachable"      <siren>     (KAT_Unreach_Grp)          
     { mqtt="<[broker:tele/sonoff_s20_4/LWT:state:MAP(reachable.map)]" }
+
+String OG_Wohnzimmer_Licht_Telefon_Verbose "Living Room Light: MQTT return message [%s]"
+    { mqtt="<[broker:tele/sonoff_s20_4/INFO1:state:default]" }
 
 
 // Sonoff S20 5 - WZ Licht Couch

@@ -7,6 +7,8 @@ sitemap debug label="Debug"
         Switch  item=Anwesenheit_Arbeit_Cath   icon="woman_1"
     }
     Frame item=KAT_Licht_Anzahl label="Experimente [%d Lampen an]" {
+        Text    item=Sonoff_Current_FW_Available
+        Text    item=Sonoff_Version
         Switch  item=KAT_Sonoff_Licht_Grp
         Switch  item=KAT_Licht
         Switch  item=OG_Wohnzimmer_Licht
